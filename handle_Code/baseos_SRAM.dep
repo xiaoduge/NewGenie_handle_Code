@@ -1,0 +1,1041 @@
+Dependencies for Project 'baseos', Target 'SRAM': (DO NOT MODIFY !)
+F (.\Source\APP\app.c)(0x5B87BF12)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\app.o --depend .\obj\app.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_def.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_mem.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_str.h)(0x4683246A)
+I (C:\Keil\ARM\ARMCC\include\errno.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\limits.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\bsp.h)(0x5A69C408)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\printf.h)(0x4CB18EE4)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\APP\serial.h)(0x5ADF27E8)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\Relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\APP\DICA.h)(0x57F1C27B)
+I (E:\vmware\New_Genie\handle\Source\APP\Beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\BSP\IWDG_Driver.h)(0x544EFDE6)
+I (E:\vmware\New_Genie\handle\Source\BSP\osal_snv.h)(0x5512747A)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+I (E:\vmware\New_Genie\handle\Source\util\keyboard.h)(0x5449B0AC)
+I (E:\vmware\New_Genie\handle\Source\APP\display.h)(0x5B056CDD)
+I (E:\vmware\New_Genie\handle\Source\APP\touch.h)(0x5802283C)
+I (E:\vmware\New_Genie\handle\Source\APP\LCD.h)(0x5A21180D)
+I (E:\vmware\New_Genie\handle\Source\APP\CanCmd.h)(0x5B88AAB4)
+I (E:\vmware\New_Genie\handle\Source\APP\cytma.h)(0x5A72E523)
+I (E:\vmware\New_Genie\handle\Source\APP\zb.h)(0x5B4C3886)
+F (.\Source\APP\app_cfg.h)(0x5A925070)()
+F (.\Source\APP\includes.h)(0x5437EA11)()
+F (.\Source\APP\os_cfg.h)(0x5458B708)()
+F (.\Source\APP\stm32f10x_it.c)(0x5B056C80)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_it.o --depend .\obj\stm32f10x_it.d)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_it.h)(0x4BD108E8)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rtc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\APP\serial.h)(0x5ADF27E8)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\BSP\Timer_Driver.h)(0x5821DC4D)
+I (E:\vmware\New_Genie\handle\Source\APP\Beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\APP\dica.h)(0x57F1C27B)
+F (.\Source\APP\stm32f10x_conf.h)(0x5151A238)()
+F (.\Source\APP\config.c)(0x5B349CB1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\config.o --depend .\obj\config.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\Config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+I (E:\vmware\New_Genie\handle\Source\APP\serial.h)(0x5ADF27E8)
+I (E:\vmware\New_Genie\handle\Source\APP\Relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\DICA.h)(0x57F1C27B)
+I (E:\vmware\New_Genie\handle\Source\APP\Beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\BSP\osal_snv.h)(0x5512747A)
+I (E:\vmware\New_Genie\handle\Source\BSP\IWDG_Driver.h)(0x544EFDE6)
+I (E:\vmware\New_Genie\handle\Source\BSP\RTC_Driver.h)(0x580DD573)
+F (.\Source\APP\Relay.c)(0x5B3DD18B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\relay.o --depend .\obj\relay.d)
+I (E:\vmware\New_Genie\handle\Source\APP\relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\APP\Config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+F (.\Source\APP\DICA.c)(0x58058406)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\dica.o --depend .\obj\dica.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_def.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_mem.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_str.h)(0x4683246A)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\errno.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\limits.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_pwr.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_bkp.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\serial.h)(0x5ADF27E8)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\APP\Dica.h)(0x57F1C27B)
+F (.\Source\APP\Beep.c)(0x57FF7F4B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\beep.o --depend .\obj\beep.d)
+I (E:\vmware\New_Genie\handle\Source\APP\Beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+F (.\Source\APP\serial.c)(0x5B056D4E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\serial.o --depend .\obj\serial.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\osal_snv.h)(0x5512747A)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\BSP\serial_driver.h)(0x554EC4DE)
+I (E:\vmware\New_Genie\handle\Source\APP\serial.h)(0x5ADF27E8)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+F (.\Source\APP\UartCmd.c)(0x5A5FF17C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\uartcmd.o --depend .\obj\uartcmd.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_def.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_mem.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_str.h)(0x4683246A)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\errno.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\limits.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\APP\Config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\BSP\serial_driver.h)(0x554EC4DE)
+F (.\Source\APP\AT.C)(0x5B3DB881)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\at.o --depend .\obj\at.d)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\APP\at.h)(0x56D5A8F1)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+F (.\Source\APP\display.c)(0x5BADDE79)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\display.o --depend .\obj\display.d)
+I (E:\vmware\New_Genie\handle\Source\APP\display.h)(0x5B056CDD)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+I (E:\vmware\New_Genie\handle\Source\APP\touch.h)(0x5802283C)
+I (E:\vmware\New_Genie\handle\Source\APP\Relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\APP\Dica.h)(0x57F1C27B)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\BSP\RTC_Driver.h)(0x580DD573)
+I (E:\vmware\New_Genie\handle\Source\APP\LCD.h)(0x5A21180D)
+I (E:\vmware\New_Genie\handle\Source\util\keyboard.h)(0x5449B0AC)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\BSP\IWDG_Driver.h)(0x544EFDE6)
+I (E:\vmware\New_Genie\handle\Source\font\font.h)(0x5A211ACD)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_def.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_defs.h)(0x554EC685)
+I (E:\vmware\New_Genie\handle\Source\BSP\Common\bmp.h)(0x5817F574)
+I (E:\vmware\New_Genie\handle\Source\BSP\Common\button.h)(0x58ABF958)
+I (E:\vmware\New_Genie\handle\Source\APP\CanCmd.h)(0x5B88AAB4)
+I (E:\vmware\New_Genie\handle\Source\APP\zb.h)(0x5B4C3886)
+F (.\Source\APP\Printf.c)(0x58195964)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\printf.o --depend .\obj\printf.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\Printf.h)(0x4CB18EE4)
+F (.\Source\APP\LCD.c)(0x5A66D28A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\lcd.o --depend .\obj\lcd.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\LCD.h)(0x5A21180D)
+I (E:\vmware\New_Genie\handle\Source\font\font.h)(0x5A211ACD)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x51C7B744)
+F (.\Source\APP\CanCmd.c)(0x5B89DD9B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\cancmd.o --depend .\obj\cancmd.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_def.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_mem.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_str.h)(0x4683246A)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\errno.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\limits.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\CanCmd.h)(0x5B88AAB4)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\BSP\Can_driver.h)(0x580DD530)
+I (E:\vmware\New_Genie\handle\Source\BSP\CanDriverItf.h)(0x580DD910)
+I (E:\vmware\New_Genie\handle\Source\APP\Config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\APP\Beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\APP\Errorcode.h)(0x53A7FADA)
+I (E:\vmware\New_Genie\handle\Source\BSP\osal_snv.h)(0x5512747A)
+I (E:\vmware\New_Genie\handle\Source\BSP\RTC_Driver.h)(0x580DD573)
+I (E:\vmware\New_Genie\handle\Source\APP\Display.h)(0x5B056CDD)
+I (E:\vmware\New_Genie\handle\Source\APP\touch.h)(0x5802283C)
+I (E:\vmware\New_Genie\handle\Source\util\Task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\APP\Relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\APP\zb.h)(0x5B4C3886)
+F (.\Source\APP\touch.c)(0x58022868)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\touch.o --depend .\obj\touch.d)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\APP\touch.h)(0x5802283C)
+F (.\Source\APP\cytma.c)(0x5B88A8AC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\cytma.o --depend .\obj\cytma.d)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\Dica.h)(0x57F1C27B)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\BSP\Bsp.h)(0x5A69C408)
+I (E:\vmware\New_Genie\handle\Source\APP\ctype.h)(0x55681557)
+I (E:\vmware\New_Genie\handle\Source\APP\beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\APP\UartCmd.h)(0x56C8673E)
+I (E:\vmware\New_Genie\handle\Source\APP\cytma.h)(0x5A72E523)
+I (E:\vmware\New_Genie\handle\Source\APP\touch.h)(0x5802283C)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+I (E:\vmware\New_Genie\handle\Source\APP\Relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\BSP\IWDG_Driver.h)(0x544EFDE6)
+F (.\Source\APP\zb.c)(0x5B891442)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\zb.o --depend .\obj\zb.d)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
+I (E:\vmware\New_Genie\handle\Source\APP\app_cfg.h)(0x5A925070)
+I (E:\vmware\New_Genie\handle\Source\APP\os_cfg.h)(0x5458B708)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\Ports\os_cpu.h)(0x486462BE)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu.h)(0x46832498)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-CPU\cpu_def.h)(0x49B7D318)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_def.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_mem.h)(0x4683246A)
+I (E:\vmware\New_Genie\handle\Source\uCOS-II\uC-LIB\lib_str.h)(0x4683246A)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\errno.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\limits.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\CanCmd.h)(0x5B88AAB4)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\DtypeStm32.h)(0x56D58756)
+I (E:\vmware\New_Genie\handle\Source\util\msg.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\vos.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\sys_time.h)(0x5451CE27)
+I (E:\vmware\New_Genie\handle\Source\util\memory.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\util\timer.h)(0x5437E804)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm32_eval.h)(0x5A712C45)
+I (E:\vmware\New_Genie\handle\Source\BSP\stm3210c_eval\stm3210c_eval.h)(0x56CE9036)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\util\gpio.h)(0x580DD5E0)
+I (E:\vmware\New_Genie\handle\Source\util\voslog.h)(0x580DD5CA)
+I (E:\vmware\New_Genie\handle\Source\APP\Config.h)(0x5ABB1089)
+I (E:\vmware\New_Genie\handle\Source\APP\sapp.h)(0x5A9DE73E)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_types.h)(0x54BA1117)
+I (E:\vmware\New_Genie\handle\Source\BSP\hal_rpc.h)(0x5821DC43)
+I (E:\vmware\New_Genie\handle\Source\BSP\common.h)(0x58BD342E)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\APP\cminterface.h)(0x5B2C99EE)
+I (E:\vmware\New_Genie\handle\Source\APP\Beep.h)(0x56CE918B)
+I (E:\vmware\New_Genie\handle\Source\APP\Errorcode.h)(0x53A7FADA)
+I (E:\vmware\New_Genie\handle\Source\BSP\osal_snv.h)(0x5512747A)
+I (E:\vmware\New_Genie\handle\Source\BSP\RTC_Driver.h)(0x580DD573)
+I (E:\vmware\New_Genie\handle\Source\APP\Display.h)(0x5B056CDD)
+I (E:\vmware\New_Genie\handle\Source\APP\touch.h)(0x5802283C)
+I (E:\vmware\New_Genie\handle\Source\util\Task.h)(0x5A699BBB)
+I (E:\vmware\New_Genie\handle\Source\APP\Relay.h)(0x5A79255A)
+I (E:\vmware\New_Genie\handle\Source\APP\zbcmitf.h)(0x5A818F42)
+I (E:\vmware\New_Genie\handle\Source\APP\serial.h)(0x5ADF27E8)
+I (E:\vmware\New_Genie\handle\Source\APP\zb.h)(0x5B4C3886)
+F (.\Source\FWLib\src\stm32f10x_bkp.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_bkp.o --depend .\obj\stm32f10x_bkp.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_bkp.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_dbgmcu.c)(0x4BD1086C)()
+F (.\Source\FWLib\src\stm32f10x_exti.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_exti.o --depend .\obj\stm32f10x_exti.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_gpio.c)(0x51662B15)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_gpio.o --depend .\obj\stm32f10x_gpio.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_pwr.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_pwr.o --depend .\obj\stm32f10x_pwr.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_pwr.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_rcc.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_rcc.o --depend .\obj\stm32f10x_rcc.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_spi.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_spi.o --depend .\obj\stm32f10x_spi.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_tim.c)(0x532301EA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_tim.o --depend .\obj\stm32f10x_tim.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_tim.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_rtc.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_rtc.o --depend .\obj\stm32f10x_rtc.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rtc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_flash.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_flash.o --depend .\obj\stm32f10x_flash.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_adc.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_adc.o --depend .\obj\stm32f10x_adc.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_adc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_can.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_can.o --depend .\obj\stm32f10x_can.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_crc.c)(0x4BD1086C)()
+F (.\Source\FWLib\src\stm32f10x_dac.c)(0x4BD1086C)()
+F (.\Source\FWLib\src\stm32f10x_dma.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_dma.o --depend .\obj\stm32f10x_dma.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_fsmc.c)(0x4BD1086C)()
+F (.\Source\FWLib\src\stm32f10x_i2c.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_i2c.o --depend .\obj\stm32f10x_i2c.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_iwdg.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_iwdg.o --depend .\obj\stm32f10x_iwdg.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_iwdg.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_sdio.c)(0x4BD1086C)()
+F (.\Source\FWLib\src\stm32f10x_usart.c)(0x4BD1086C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\stm32f10x_usart.o --depend .\obj\stm32f10x_usart.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\Source\FWLib\src\stm32f10x_wwdg.c)(0x4BD1086C)()
+F (.\Source\FWLib\src\misc.c)(0x51CC5F35)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\misc.o --depend .\obj\misc.d)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+F (.\Source\FWLib\src\stm32f10x_cec.c)(0x4BD1086C)()
+F (.\Source\CMSIS\CM3\CoreSupport\core_cm3.c)(0x4BD10894)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\core_cm3.o --depend .\obj\core_cm3.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_cl.s)(0x4BD10896)()
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_hd.s)(0x4BD10896)()
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_ld.s)(0x4BD10896)()
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_ld_vl.s)(0x4BD10896)()
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_md.s)(0x52425A80)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x--list .\obj\startup_stm32f10x_md.lst --xref -o .\obj\startup_stm32f10x_md.o --depend .\obj\startup_stm32f10x_md.d)
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_md_vl.s)(0x4BD10896)()
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_xl.s)(0x4BD10896)()
+F (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.c)(0x51CC0FE5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\system_stm32f10x.o --depend .\obj\system_stm32f10x.d)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (E:\vmware\New_Genie\handle\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h)(0x4BD10896)
+I (E:\vmware\New_Genie\handle\Source\APP\stm32f10x_conf.h)(0x5151A238)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_dma.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_exti.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_gpio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_i2c.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_rcc.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
+I (E:\vmware\New_Genie\handle\Source\FWLib\inc\misc.h)(0x4BD1086A)
+F (.\lib\0862100000STM32F103.lib)(0x5B34974E)()
+F (.\Source\font\font.c)(0x5A5D7068)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I.\Source\CMSIS\CM3\CoreSupport -I.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I.\Source\FWLib\inc -I.\Source\APP -I.\Source\BSP -I.\Source\FWLib -I.\Source\uCOS-II\Source -I.\Source\uCOS-II\uC-CPU -I.\Source\uCOS-II\uC-LIB -I.\Source\uCOS-II\Ports -I.\Source\util -I.\Source\BSP\Common -I.\Source\FATFS -I.\Source\STM32_USB-FS-Device_Driver\inc -I.\Source\HAL\USBCDC -I.\Source\font -I.\Source\SD_Card -I.\Source\SD_Card\SD-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\ST\STM32F10x-DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48 -o .\obj\font.o --depend .\obj\font.d)
+I (E:\vmware\New_Genie\handle\Source\font\font.h)(0x5A211ACD)
