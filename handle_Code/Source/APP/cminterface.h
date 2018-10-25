@@ -509,10 +509,8 @@ typedef struct
 {
     uint8_t ucState;    /* refer: APP_PACKET_HS_STATE_ENUM */
     uint8_t ucResult;
-    uint8_t ucAddData;   /* 
-                         APP_PACKET_HS_STATE_QTW : TW flags
-                         APP_PACKET_HS_STATE_CIR : CIR TYPE
-                       */
+    uint8_t ucAddData;   /* APP_PACKET_HS_STATE_QTW : TW flags;  APP_PACKET_HS_STATE_CIR : CIR TYPE */
+	uint8_t ucAlarmState;
 }APP_PACKET_HO_STATE_STRU;
 
 typedef enum

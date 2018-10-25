@@ -1532,7 +1532,7 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
     		CanCcb[ucIndex].ucMachineState = MACHINE_STATE_MAIN_WAIT_OPRATION_RSP;
         }
 
-        VOS_LOG(VOS_LOG_ERROR,"send Ops  %d&%d\r\n",ucIndex,pOpsMsg->ucOpsType);
+        //VOS_LOG(VOS_LOG_ERROR,"send Ops  %d&%d\r\n",ucIndex,pOpsMsg->ucOpsType);
 
         return 0;
 	}

@@ -227,7 +227,7 @@
 #define DISP_ADC_METHOD_TYPE DISP_ADC_METHOD_SIMUTANEOUS
 
 
-#define DISP_LCD_DORMANT_TIME (3*60)
+#define DISP_LCD_DORMANT_TIME    (1*60)
 
 #define DISP_ALARM_DURATION_TIME (3*60)
 
@@ -1551,6 +1551,11 @@ void Disp_Update4State(uint8_t ucState);
 
 void Disp_BtnClicked(void *para);
 
+void Disp_EnableScreenSaver(int bEnable);
+
+void Disp_ProcessAlarmInd(uint8_t ucInvalidate);
+
+
 #define DEALTA 5
 
 void Disp_PutCross(int x, int y,u16 color)
@@ -1752,22 +1757,27 @@ void Disp_CleanTail(int xoff,int yoff,char *text,uint16_t usBkColor)
 
 void Draw_Speed_Progress_Bar()
 {
-   int ucloop;
-   uint16_t usLeft;
-   uint16_t usTop;
+    int ucloop;
+    uint16_t usLeft;
+    uint16_t usTop;
+
+    if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
 
    //LCD_ClearRect(SHOW_BAR_CX,SHOW_BAR_CY,MAKE_RIGHT_CORD(SHOW_BAR_CX,SHOW_BAR_CW),MAKE_BOTTOM_CORD(SHOW_BAR_CY,SHOW_BAR_CH),gDisplay.usBackColor);
-   DrawBitmap(bmpprogressbarback,SHOW_BAR_CX,SHOW_BAR_CY,LCD_DrawPoint);
-   DrawBitmap(bmpprogressbar,SHOW_BAR_CX + 2,SHOW_BAR_CY + 2,LCD_DrawPoint);
+    DrawBitmap(bmpprogressbarback,SHOW_BAR_CX,SHOW_BAR_CY,LCD_DrawPoint);
+    DrawBitmap(bmpprogressbar,SHOW_BAR_CX + 2,SHOW_BAR_CY + 2,LCD_DrawPoint);
 
-   gDisplay.ucQtwSpeed > 10 ? gDisplay.ucQtwSpeed = 10 : gDisplay.ucQtwSpeed;
+    gDisplay.ucQtwSpeed > 10 ? gDisplay.ucQtwSpeed = 10 : gDisplay.ucQtwSpeed;
    
-   for(ucloop = 0;ucloop < gDisplay.ucQtwSpeed;ucloop++)
-   {
-        usLeft = SHOW_BAR_CX + 2 + 6*ucloop;
+    for(ucloop = 0;ucloop < gDisplay.ucQtwSpeed;ucloop++)
+    {
+		usLeft = SHOW_BAR_CX + 2 + 6*ucloop;
         usTop  = SHOW_BAR_CY + 2;
         DrawBitmap(bmpprogressbar,usLeft,usTop,LCD_DrawPoint);
-   }
+    }
 
 }
 
@@ -1775,6 +1785,11 @@ void Disp_ShowTitle(char *strState)//,char *strInfo)
 {
     int xoff;
     int yoff;
+
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
     
 	LCD_DrawRectangle(SHOW_TITLE_X,SHOW_TITLE_Y,MAKE_RIGHT_CORD(SHOW_TITLE_X,SHOW_TITLE_W),MAKE_BOTTOM_CORD(SHOW_TITLE_Y,SHOW_TITLE_H),gDisplay.usForColor);
 
@@ -1811,6 +1826,10 @@ void Disp_UpdateWaterQuality(float fValue)
 
     char buf[32];
 
+	if(gDisplay.bit1ScreenSaver) //屏保时不刷新水质值
+	{
+		return;
+	}
 
     Disp_SelectFont(&font8);
 
@@ -1900,6 +1919,11 @@ void Disp_UpdateRti4State(float fPpb)
     char buf[32];
 
     gDisplay.fWaterPPB = fPpb;
+
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
     
     if ((0 != gDisplay.ucHaveTOC)
 		&& ( APP_DEV_HS_SUB_HYPER == gDisplay.ucDevType))
@@ -1934,7 +1958,12 @@ void Disp_UpdateRti4Temp(int iTemp)
 {
     int xoff;
     int yoff;
-    char buf[20];
+    char buf[20];
+
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
 
 
     //sprintf(buf,"%d",toTempshowvalue(gDisplay.iTemperature));
@@ -1957,6 +1986,11 @@ void Disp_UpdateRti4Temp(int iTemp)
 
 void Disp_ShowRti(float fPpb,int iTemp)
 {
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
+	
     LCD_DrawRectangle(SHOW_RTI_X,SHOW_RTI_Y,MAKE_RIGHT_CORD(SHOW_RTI_X,SHOW_RTI_W),MAKE_BOTTOM_CORD(SHOW_RTI_Y,SHOW_RTI_H),gDisplay.usForColor);
 
     Disp_UpdateRti4State(fPpb);
@@ -1968,6 +2002,11 @@ void Disp_LiquidLevelUpdatePage(void)
     int xoff,yoff;
 	
     char buf[20];
+	
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
   
     sprintf(buf,"%d",(gDisplay.ucLiquidLevel >= 100 ? 100 : gDisplay.ucLiquidLevel));
             
@@ -1988,7 +2027,16 @@ void Disp_LiquidLevelUpdatePage(void)
 
 void Disp_ShowButtons(BOOL bShow)
 {
-    //Disp_ClearButtonScreen(WHITE);
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
+	
+    if (gDisplay.bit1InvalidBtns) 
+    {
+        Disp_ClearButtonScreen(WHITE);
+        gDisplay.bit1InvalidBtns = 0;
+    }
 
     BtnShow(gpBtnTWInc,bShow);
     BtnShow(gpBtnTWDec,bShow);
@@ -2002,6 +2050,10 @@ void Disp_ShowButtons(BOOL bShow)
 
 void Disp_ShowInfo(char *title)
 {
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
     Disp_ClearInfoScreen(gDisplay.usBackColor);
 
     Disp_ShowTitle(title);
@@ -2287,7 +2339,7 @@ void Disp_DisplayIdlePage(void)
         text = "Standby";
         break;
     case APP_LAN_CHN:
-        text = "空闲";
+        text = "待机";
         break;
     }
   
@@ -2444,6 +2496,10 @@ void Disp_QtwProductVolumn(void)
     int yoff = 0;
     char buf[16];
 
+	if(gDisplay.bit1ScreenSaver)
+	{
+		return;
+	}
 
     if (gDisplay.bQtwFlag)
     {
@@ -2540,17 +2596,18 @@ void Disp_msg_Handler(Message *Msg)
 
 void Disp_Move2QtwTakingWater(int bLocal)
 {
+
+   if (!bLocal)
+   {
+       Disp_SndTakingWaterMsg(APP_PACKET_HO_ACTION_START,(gDisplay.usQtwWq * APP_QTW_UNIT));
+   }
+
    Disp_Move2DstPage();
 
    // move to qtw taking state
    Disp_Move2DstState();
 
    Disp_QtwTakingWaterInitPage();
-
-   if (!bLocal)
-   {
-       Disp_SndTakingWaterMsg(APP_PACKET_HO_ACTION_START,(gDisplay.usQtwWq * APP_QTW_UNIT));
-   }
 
    Disp_SaveQtwVolume();
    Disp_SaveQtwSpeed();
@@ -2571,7 +2628,7 @@ void Disp_NtwInitPage(void)
         text = "Ausgabe";
         break;
     case APP_LAN_CHN:
-        text = "产 水";
+        text = "产水";
         break;
     }    
     Disp_ShowInfo(text);
@@ -2593,12 +2650,12 @@ void Disp_Move2Ntw(int bLocal)
 
    Disp_Move2DstState();
 
-   Disp_NtwInitPage();
-
    if (!bLocal)
    {
        Disp_SndTakingWaterMsg(APP_PACKET_HO_ACTION_START,INVALID_FM_VALUE);
    }
+   
+   Disp_NtwInitPage();
 
 }
 
@@ -2755,6 +2812,7 @@ void Disp_KeyHandler_qtw_tw(int key,int state)
     switch(key)
     {
     case KEY_CODE_HAND_KEY:
+    case KEY_CODE_FOOT_KEY:
         if (KEYSTATE_PRESSED == state)
         {
             Disp_StopQtwTakingWater();
@@ -2785,6 +2843,7 @@ void Disp_KeyHandler_ntw_idle(int key,int state)
     switch(key)
     {
     case KEY_CODE_HAND_KEY:
+    case KEY_CODE_FOOT_KEY:
         if (KEYSTATE_PRESSED == state)
         {
             Disp_StopNtwTakingWater();
@@ -2878,6 +2937,13 @@ void Disp_TouchHandler(TOUCH_EVENT *event)
         return;
     }
 
+      if (gDisplay.bit1ScreenSaver
+        && (event->usEvent))
+    {
+        Disp_EnableScreenSaver(FALSE);
+        return;
+    }  
+
     //if (sTsCali.sCalibrating)
     //{
     //    Disp_Calibrating(event);
@@ -2970,6 +3036,14 @@ void Disp_KeyHandler(int key,int state)
         LCD_EnableBackLight(TRUE);
         return;
     }
+
+    if (gDisplay.bit1ScreenSaver
+        && (state == KEYSTATE_PRESSED))
+    {
+        Disp_EnableScreenSaver(FALSE);
+        return;
+    }  
+    
 #if (IWDG_SUPPORT > 0)
     IWDG_Feed();  
 #endif
@@ -3041,6 +3115,50 @@ void Display_LongKeyHandler(int key,int state)
     }
 }
 
+void DrawScreenSaverMsg()
+{
+	int xoff;
+    int yoff;
+    char *buf;
+	
+	if(APP_DEV_HS_SUB_HYPER == gDisplay.ucDevType)
+	{
+		buf = "UP";
+	}
+	else
+	{
+		buf = "HP";
+	}
+
+    Disp_SelectFont(&font48);
+
+	xoff = SHOW_WATER_QUALITY_UNIT_X;
+    xoff -= (curFont->sizeX*(strlen(buf)) + 30);
+    
+    yoff = SHOW_WATER_QUALITY_SHOW_Y + 20;
+    
+    curFont->DrawText(xoff,yoff,(u8 *)buf, WHITE, gDisplay.usBackColor4ScreenSaver);
+
+    Disp_SelectFont(oldfont);
+}
+
+void Disp_EnableScreenSaver(int bEnable)
+{
+    gDisplay.bit1ScreenSaver = bEnable;
+
+    if (!bEnable)
+    {
+        Disp_Invalidate();
+        return;
+    }
+
+    gDisplay.bit1InvalidBtns = TRUE;
+
+    /* Enter into Scree saver */
+    Disp_ClearScreen(gDisplay.usBackColor4ScreenSaver);
+	DrawScreenSaverMsg();
+}
+
 
 void Disp_SecondTask(void)
 {
@@ -3087,15 +3205,37 @@ void Disp_SecondTask(void)
             {
                 Disp_UpdateIdlePage();
             }
+	     /*
             gDisplay.usIdleLcdTimes++;
 
             if (gDisplay.usIdleLcdTimes >= DISP_LCD_DORMANT_TIME)
             {
                 //LCD_EnableBackLight(FALSE);
+                if (!gDisplay.bit1ScreenSaver)
+                {
+                    Disp_EnableScreenSaver(TRUE);
+                }
 
                 gDisplay.usIdleLcdTimes = 0;
             }
-        }     
+         */
+        }
+		
+		if((APP_PACKET_HS_STATE_QTW != gDisplay.ucOperState)
+			&& (APP_PACKET_HS_STATE_DEC != gDisplay.ucOperState)
+			&& (APP_PACKET_HS_STATE_CIR != gDisplay.ucOperState))
+		{
+			gDisplay.usIdleLcdTimes++;
+            if (gDisplay.usIdleLcdTimes >= DISP_LCD_DORMANT_TIME)
+            {
+                //LCD_EnableBackLight(FALSE);
+                if (!gDisplay.bit1ScreenSaver)
+                {
+                    Disp_EnableScreenSaver(TRUE);
+                }
+                gDisplay.usIdleLcdTimes = 0;
+            }
+		}
 
         if ((gDisplay.usSeconds % 60) == 0)
         {
@@ -3468,10 +3608,17 @@ void Disp_DisplayStaNotify(uint8_t ucState)
 }
 
 
-void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData)
+void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData, uint8_t ucAlarmState)
 {
     uint8_t ucOldState = gDisplay.ucOperState;
 
+	//ex   Synchronous alarm status
+	if (gDisplay.ucAlarmState != ucAlarmState) 
+    {
+    	gDisplay.ucAlarmState = ucAlarmState;        
+        Disp_ProcessAlarmInd(TRUE);
+    }
+	//end
     if(APP_PACKET_HS_STATE_QTW == ucState)
     {
         if (Disp_GetTwFlag(ucAddData)) 
@@ -3528,7 +3675,7 @@ void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData)
 
 void Disp_DisplayHeartBeatNotify(APP_PACKET_HO_STATE_STRU *pHoState)
 {
-     Disp_DisplayStateNotify(pHoState->ucState,pHoState->ucAddData);
+     Disp_DisplayStateNotify(pHoState->ucState,pHoState->ucAddData, pHoState->ucAlarmState);
 }
 
 void Disp_OpsAdrSet(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg)
@@ -3635,7 +3782,8 @@ void Disp_ProcessAlarmInd(uint8_t ucInvalidate)
 void Disp_DisplayHandleIndConf(uint8_t ucTrxIndex,APP_PACKET_ONLINE_NOTI_CONF_STRU *pIndConf)
 {
 	APP_PACKET_ONLINE_NOTI_CONF_HANDLER_STRU *pInfo = (APP_PACKET_ONLINE_NOTI_CONF_HANDLER_STRU *)pIndConf->aucInfo;
-    gDisplay.ucLan     = APP_LAN_ENG;
+   // gDisplay.ucLan     = APP_LAN_ENG;
+	gDisplay.ucLan     = pInfo->ucLan;
     gDisplay.ucDevType = pInfo->ucMode;
 
     gDisplay.ucLiquidLevel = pInfo->ucLiquidLevel;
@@ -3662,7 +3810,7 @@ void Disp_DisplayHandleIndConf(uint8_t ucTrxIndex,APP_PACKET_ONLINE_NOTI_CONF_ST
         break;
     }
     
-    Disp_DisplayStateNotify(pInfo->ucState,pInfo->ucAddData);
+    Disp_DisplayStateNotify(pInfo->ucState,pInfo->ucAddData, pInfo->ucAlarmState);
     
 }
 
@@ -3820,7 +3968,7 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
                //|| APP_PACKET_HS_STATE_QTW != pStaMsg->ucState)
            if (Disp_GetTrxIndex() == ucTrxIndex)
            {
-               Disp_DisplayStateNotify(pStaMsg->ucState,pStaMsg->ucAddData);
+               Disp_DisplayStateNotify(pStaMsg->ucState,pStaMsg->ucAddData, pStaMsg->ucAlarmState);
            }
        }
        break;
@@ -3850,8 +3998,9 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
 
             if(APP_PACKET_HO_QL_TYPE_LEVEL & pLevelMsg->ucMask)
             {
-               if((gDisplay.ucLiquidLevel != pLevelMsg->ucLevel) &&
-                 ((100 <= gDisplay.ucLiquidLevel ) && (100 > pLevelMsg->ucLevel)))
+               if((gDisplay.ucLiquidLevel != pLevelMsg->ucLevel) 
+			   	&&((100 <= gDisplay.ucLiquidLevel ) && (100 > pLevelMsg->ucLevel))
+			   	&& (!gDisplay.bit1ScreenSaver))
                { 
                    LCD_ClearRect(150,3,235,30,gDisplay.usBackColor);
                }
@@ -4129,6 +4278,9 @@ void Disp_Init(void)
     gDisplay.usForColor        = GRAY;//BLACK;
     gDisplay.usBackColor       = WHITE;
     gDisplay.usBackColor4Set   = WHITE;
+    gDisplay.usBackColor4ScreenSaver   = BLACK;  //GBLUE;
+	gDisplay.bit1ScreenSaver = FALSE;
+	
     gDisplay.cfg->cfg1.devType = APP_DEV_HS_SUB_HYPER; // late update from cfg
     gDisplay.ucDspWelcomeTime  = 1; // fixed to three second
     gDisplay.ulStartSecond     = RTC_Get_Second();

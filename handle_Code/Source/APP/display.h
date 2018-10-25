@@ -254,6 +254,8 @@ typedef struct
 {
 
     uint32_t bit1Admin        : 1;
+    uint32_t bit1ScreenSaver  : 1;
+    uint32_t bit1InvalidBtns  : 1;
 
 
     uint8_t ucTrxMap;  /* refer APP_TRX_TYPE_ENUM */
@@ -277,6 +279,7 @@ typedef struct
     uint16_t usBackColor; // for general purpose, i.e. setting
 
     uint16_t usBackColor4Set;
+    uint16_t usBackColor4ScreenSaver;
 
     uint8_t ucLan;
     uint8_t ucUnit;
