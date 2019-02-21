@@ -2,7 +2,7 @@
 .\obj\touch.o: .\Source\BSP\stm32_eval.h
 .\obj\touch.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\obj\touch.o: .\Source\CMSIS\CM3\CoreSupport\core_cm3.h
-.\obj\touch.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\touch.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\obj\touch.o: .\Source\APP\stm32f10x_conf.h
 .\obj\touch.o: .\Source\FWLib\inc\stm32f10x_dma.h
@@ -30,5 +30,5 @@
 .\obj\touch.o: .\Source\util\task.h
 .\obj\touch.o: .\Source\util\msg.h
 .\obj\touch.o: .\Source\util\vos.h
-.\obj\touch.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\obj\touch.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\touch.o: Source\APP\touch.h

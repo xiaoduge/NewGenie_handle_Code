@@ -2,7 +2,7 @@
 .\obj\stm32f10x_can.o: .\Source\FWLib\inc\stm32f10x_can.h
 .\obj\stm32f10x_can.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\obj\stm32f10x_can.o: .\Source\CMSIS\CM3\CoreSupport\core_cm3.h
-.\obj\stm32f10x_can.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\stm32f10x_can.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\stm32f10x_can.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\obj\stm32f10x_can.o: .\Source\APP\stm32f10x_conf.h
 .\obj\stm32f10x_can.o: .\Source\FWLib\inc\stm32f10x_dma.h

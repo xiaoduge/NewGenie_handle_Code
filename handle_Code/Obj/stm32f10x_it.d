@@ -2,7 +2,7 @@
 .\obj\stm32f10x_it.o: Source\APP\stm32f10x_it.h
 .\obj\stm32f10x_it.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\obj\stm32f10x_it.o: .\Source\CMSIS\CM3\CoreSupport\core_cm3.h
-.\obj\stm32f10x_it.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\stm32f10x_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\stm32f10x_it.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\obj\stm32f10x_it.o: .\Source\APP\stm32f10x_conf.h
 .\obj\stm32f10x_it.o: .\Source\FWLib\inc\stm32f10x_dma.h
@@ -17,7 +17,7 @@
 .\obj\stm32f10x_it.o: .\Source\FWLib\inc\misc.h
 .\obj\stm32f10x_it.o: .\Source\FWLib\inc\stm32f10x_rtc.h
 .\obj\stm32f10x_it.o: .\Source\FWLib\inc\stm32f10x_tim.h
-.\obj\stm32f10x_it.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\obj\stm32f10x_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\stm32f10x_it.o: .\Source\uCOS-II\Source\ucos_ii.h
 .\obj\stm32f10x_it.o: .\Source\APP\app_cfg.h
 .\obj\stm32f10x_it.o: .\Source\APP\os_cfg.h

@@ -3,7 +3,7 @@
 .\obj\relay.o: .\Source\BSP\stm32_eval.h
 .\obj\relay.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\obj\relay.o: .\Source\CMSIS\CM3\CoreSupport\core_cm3.h
-.\obj\relay.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\relay.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\relay.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\obj\relay.o: .\Source\APP\stm32f10x_conf.h
 .\obj\relay.o: .\Source\FWLib\inc\stm32f10x_dma.h
@@ -38,5 +38,5 @@
 .\obj\relay.o: .\Source\BSP\common.h
 .\obj\relay.o: .\Source\FWLib\inc\stm32f10x_flash.h
 .\obj\relay.o: Source\APP\cminterface.h
-.\obj\relay.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\obj\relay.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\relay.o: .\Source\BSP\sys_time.h

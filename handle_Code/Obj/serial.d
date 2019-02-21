@@ -3,11 +3,11 @@
 .\obj\serial.o: .\Source\APP\app_cfg.h
 .\obj\serial.o: .\Source\APP\os_cfg.h
 .\obj\serial.o: .\Source\uCOS-II\Ports\os_cpu.h
-.\obj\serial.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\obj\serial.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\serial.o: .\Source\BSP\common.h
 .\obj\serial.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
 .\obj\serial.o: .\Source\CMSIS\CM3\CoreSupport\core_cm3.h
-.\obj\serial.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\serial.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\serial.o: .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
 .\obj\serial.o: .\Source\APP\stm32f10x_conf.h
 .\obj\serial.o: .\Source\FWLib\inc\stm32f10x_dma.h
