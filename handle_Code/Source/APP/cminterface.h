@@ -350,6 +350,7 @@ typedef enum
     APP_PACKET_HS_STATE_QTW, /* Quantity Taking Water */
     APP_PACKET_HS_STATE_CIR, /* Circulation */
     APP_PACKET_HS_STATE_DEC, /* Decompress */
+    APP_PACKET_HS_STATE_WAIT /*wait 2019.3.5 add*/
 }APP_PACKET_HS_STATE_ENUM;
 
 typedef enum

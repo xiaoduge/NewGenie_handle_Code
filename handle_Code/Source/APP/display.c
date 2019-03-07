@@ -250,15 +250,17 @@
 #define LONGKEY_PRESS_COMM_SECONDS (3)
 
 #define DISP_KEY_WIDTH     (LCD_W)
-#define DISP_KEY_HEIGHT    (40)
+#define DISP_KEY_HEIGHT    (4is0)
 
 #define DISP_SCREEN_WIDTH  (LCD_W)
 #define DISP_SCREEN_HEIGHT (LCD_H - DISP_KEY_HEIGHT)
 
 #define BAR_MAX_LENTH      (10)
-#define MAX_TW_VOLUME      (10000)
+#define MAX_TW_VOLUME      (10000)
+
 
 int isI2 = 0;
+int isQtwing = 0;  //QTWING;
 
 typedef enum
 {
@@ -1667,7 +1669,7 @@ void Disp_ClearButtonScreen(u16 Color)
 
 void Disp_KeyRegion(void)
 {
-    LCD_ClearRect(0,DISP_SCREEN_HEIGHT,DISP_SCREEN_WIDTH - 1,LCD_H - 1,WHITE);
+   // LCD_ClearRect(0, DISP_SCREEN_HEIGHT, DISP_SCREEN_WIDTH - 1, LCD_H - 1, WHITE);
 }
 
 void Disp_Select_Sensor(int Mask)
@@ -1958,7 +1960,8 @@ void Disp_UpdateRti4Temp(int iTemp)
 {
     int xoff;
     int yoff;
-    char buf[20];
+    char buf[20];
+
 
 	if(gDisplay.bit1ScreenSaver)
 	{
@@ -2347,6 +2350,60 @@ void Disp_DisplayIdlePage(void)
     Disp_ShowButtons(TRUE);
 }
 
+//2019.3.5 add
+void Disp_DisplayInUsePage(void)
+{
+    char *text;
+
+    gDisplay.ucOperState = APP_PACKET_HS_STATE_RUN;
+
+    // display text info
+    switch(gDisplay.ucLan)
+    {
+    default:
+    case APP_LAN_ENG:
+        text = "In Use";
+        break;
+    case APP_LAN_GER:
+        text = "In Use";
+        break;
+    case APP_LAN_CHN:
+        text = "使用中";
+        break;
+    }
+ 
+    Disp_ShowInfo(text);
+    Disp_ShowButtons(TRUE);
+
+}
+
+
+//2019.3.5 add
+void Disp_DisplayWaitPage(void)
+{
+    char *text;
+
+    gDisplay.ucOperState = APP_PACKET_HS_STATE_WAIT;
+
+    // display text info
+    switch(gDisplay.ucLan)
+    {
+    default:
+    case APP_LAN_ENG:
+        text = "Waiting";
+        break;
+    case APP_LAN_GER:
+        text = "Waiting";
+        break;
+    case APP_LAN_CHN:
+        text = "稍等";
+        break;
+    }
+ 
+    Disp_ShowInfo(text);
+    Disp_ShowButtons(TRUE);
+
+}
 
 void Disp_DisplayRunPage(void)
 {
@@ -2399,6 +2456,30 @@ void Disp_PrepareMove2Idle(void)
     Disp_Move2Idle();
 }
 
+//2019.3.5 add
+void Disp_Move2InUse(void)
+{
+    Disp_Move2DstPage();
+    
+    Disp_Move2DstState();
+
+	Disp_DisplayInUsePage();
+
+}
+
+
+//2019.3.5 add
+void Disp_Move2Wait(void)
+{
+    Disp_Move2DstPage();
+    
+    Disp_Move2DstState();
+
+	Disp_DisplayWaitPage();
+
+}
+
+
 void Disp_Move2Ready(void)
 {
     Disp_Move2DstPage();
@@ -2406,6 +2487,31 @@ void Disp_Move2Ready(void)
     Disp_Move2DstState();
     
     Disp_DisplayRunPage();
+}
+
+//2019.3.5 add
+void Disp_PrepareMove2InUse(void)
+{
+    gDisplay.tgtPage.ucMain = DISPLAY_PAGE_RUN;
+    gDisplay.tgtPage.ucSub  = DISPLAY_SUB_PAGE_IDLE;
+    
+    gDisplay.TgtState.ucMain = DISPLAY_STATE_IDLE;
+    gDisplay.TgtState.ucSub  = DISPLAY_SUB_STATE_IDLE;
+	
+	Disp_Move2InUse();
+}
+
+
+//2019.3.5 add
+void Disp_PrepareMove2Wait(void)
+{
+    gDisplay.tgtPage.ucMain = DISPLAY_PAGE_WAIT;
+    gDisplay.tgtPage.ucSub  = DISPLAY_SUB_PAGE_IDLE;
+    
+    gDisplay.TgtState.ucMain = DISPLAY_STATE_IDLE;
+    gDisplay.TgtState.ucSub  = DISPLAY_SUB_STATE_IDLE;
+	
+	Disp_Move2Wait();
 }
 
 void Disp_PrepareMove2Ready(void)
@@ -2836,8 +2942,6 @@ void Disp_KeyHandler_qtw(int key,int state)
     }
 }
 
-
-
 void Disp_KeyHandler_ntw_idle(int key,int state)
 {
     switch(key)
@@ -2854,7 +2958,6 @@ void Disp_KeyHandler_ntw_idle(int key,int state)
     }
 
 }
-
 
 void Disp_KeyHandler_ntw(int key,int state)
 {
@@ -3065,7 +3168,6 @@ void Disp_KeyHandler(int key,int state)
     case DISPLAY_PAGE_QUANTITY_TAKING_WATER:
         Disp_KeyHandler_qtw(key,state);
         break;
-
     }
 }
 
@@ -3274,7 +3376,7 @@ void Disp_Invalidate(void)
         }
         break;
     case DISPLAY_PAGE_RUN:
-        Disp_DisplayRunPage();
+       	Disp_DisplayRunPage();
         break;
     case DISPLAY_PAGE_CIRCULATION:
         Disp_CirculationInitPage();
@@ -3305,7 +3407,9 @@ void Disp_DisplayHandleOpsTimeout(uint8_t ucOpType)
        {
           gDisplay.ucOperRslt = APP_PACKET_HO_ERROR_CODE_TIMEOUT;
 
-          Disp_PrepareMove2Ready();
+          //Disp_PrepareMove2Ready();
+          Disp_PrepareMove2Wait();
+		  VOS_LOG(VOS_LOG_DEBUG, "xxxxxxxx time out xxxxx");
        }
        break;
    default:
@@ -3328,6 +3432,16 @@ void Disp_PeerStateDec(void)
     {
         Disp_PrepareMove2Dec();
     }
+}
+
+//2019.3.5
+void Disp_PeerStateWait(void)
+{
+    if (DISPLAY_PAGE_RUN != gDisplay.curPage.ucMain)
+    {
+        Disp_PrepareMove2Wait();
+    }
+
 }
 
 void Disp_PeerStateRun(void)
@@ -3357,27 +3471,35 @@ void Disp_PeerStateCir(void)
 
 void Disp_Update4State(uint8_t ucState)
 {
+	isQtwing = 0;
     switch(ucState)
     {
     case APP_PACKET_HS_STATE_IDLE:
-         Disp_PeerStateIdle();
-         gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
-         break;
+        Disp_PeerStateIdle();
+        gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
+        break;
     case APP_PACKET_HS_STATE_RUN:
-         Disp_PeerStateRun();
-         gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
-         break;
+        Disp_PeerStateRun();
+        gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
+		break;
+		
+	case APP_PACKET_HS_STATE_WAIT:  //2019.3.5 add
+		isQtwing = 1;
+		Disp_PeerStateWait();
+        gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
+		break;
+		 	
     case APP_PACKET_HS_STATE_QTW:
-         Disp_PeerStateQtw();
-         break;
+        Disp_PeerStateQtw();
+        break;
     case APP_PACKET_HS_STATE_CIR:
-         Disp_PeerStateCir();
-         gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
-         break;
+        Disp_PeerStateCir();
+        gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
+        break;
     case APP_PACKET_HS_STATE_DEC:
-         Disp_PeerStateDec();
-         gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
-         break;
+        Disp_PeerStateDec();
+        gDisplay.ucTwType = APP_DEV_HS_SUB_NUM;
+        break;
     }
 }
 
@@ -3629,7 +3751,8 @@ void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData, uint8_t ucAlarmS
         }
         else
         {   
-            Disp_DisplayStaNotify(APP_PACKET_HS_STATE_RUN);
+        	Disp_DisplayStaNotify(APP_PACKET_HS_STATE_WAIT);
+            //Disp_DisplayStaNotify(APP_PACKET_HS_STATE_RUN);
             
             Disp_DisplayTWNotify(FALSE);
         }           
@@ -3872,7 +3995,13 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
 
            if (ucDedicated)
            {
-               if(pQtwRsp->ucResult)
+           	   //2019.3.5 add
+           	   if(APP_PACKET_HO_ERROR_CODE_UNSUPPORT == pQtwRsp->ucResult)
+           	   {
+           	       Disp_PrepareMove2InUse();
+           	   } //end
+           	   
+               else if(pQtwRsp->ucResult)
                {
                    Disp_PrepareMove2Ready();
                }

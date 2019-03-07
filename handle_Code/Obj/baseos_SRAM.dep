@@ -47,7 +47,7 @@ I (Source\APP\sapp.h)(0x5A9DE73E)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (.\Source\BSP\stm32_eval.h)(0x5A712C45)
 I (.\Source\BSP\stm3210c_eval/stm3210c_eval.h)(0x56CE9036)
 I (.\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
@@ -62,7 +62,7 @@ I (.\Source\BSP\IWDG_Driver.h)(0x544EFDE6)
 I (.\Source\BSP\osal_snv.h)(0x5512747A)
 I (.\Source\BSP\sys_time.h)(0x5451CE27)
 I (.\Source\util\keyboard.h)(0x5449B0AC)
-I (Source\APP\display.h)(0x5BBEB511)
+I (Source\APP\display.h)(0x5C7E23B3)
 I (.\Source\BSP\sys_time.h )(0x5451CE27)
 I (Source\APP\touch.h)(0x5802283C)
 I (Source\APP\LCD.h)(0x5A21180D)
@@ -109,7 +109,7 @@ I (Source\APP\sapp.h)(0x5A9DE73E)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (.\Source\BSP\stm32_eval.h)(0x5A712C45)
 I (.\Source\BSP\stm3210c_eval/stm3210c_eval.h)(0x56CE9036)
 I (.\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
@@ -154,7 +154,7 @@ I (Source\APP\sapp.h)(0x5A9DE73E)
 I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (Source\APP\UartCmd.h)(0x56C8673E)
 I (Source\APP\serial.h)(0x5ADF27E8)
 I (Source\APP\Relay.h)(0x5A79255A)
@@ -208,7 +208,7 @@ I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (.\Source\BSP\sys_time.h)(0x5451CE27)
 F (.\Source\APP\DICA.c)(0x58058406)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\dica.o --depend .\obj\dica.d)
@@ -262,7 +262,7 @@ I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (Source\APP\Dica.h)(0x57F1C27B)
 F (.\Source\APP\Beep.c)(0x57FF7F4B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\beep.o --depend .\obj\beep.d)
 I (Source\APP\Beep.h)(0x56CE918B)
@@ -336,7 +336,7 @@ I (Source\APP\serial.h)(0x5ADF27E8)
 I (Source\APP\config.h)(0x5ABB1089)
 I (Source\APP\sapp.h)(0x5A9DE73E)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (Source\APP\UartCmd.h)(0x56C8673E)
 F (.\Source\APP\UartCmd.c)(0x5A5FF17C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\uartcmd.o --depend .\obj\uartcmd.d)
 I (.\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
@@ -388,7 +388,7 @@ I (Source\APP\sapp.h)(0x5A9DE73E)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (.\Source\util\task.h)(0x5A699BBB)
 I (.\Source\BSP\serial_driver.h)(0x554EC4DE)
 F (.\Source\APP\AT.C)(0x5B3DB881)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\at.o --depend .\obj\at.d)
@@ -433,9 +433,9 @@ I (.\Source\APP\DtypeStm32.h)(0x56D58756)
 I (.\Source\util\msg.h)(0x5437E804)
 I (.\Source\util\vos.h)(0x5437E804)
 I (.\Source\util\timer.h)(0x5437E804)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
-F (.\Source\APP\display.c)(0x5BD02B35)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\display.o --depend .\obj\display.d)
-I (Source\APP\display.h)(0x5BBEB511)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
+F (.\Source\APP\display.c)(0x5C7E394D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\display.o --depend .\obj\display.d)
+I (Source\APP\display.h)(0x5C7E23B3)
 I (.\Source\BSP\stm32_eval.h)(0x5A712C45)
 I (.\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4BD10894)
 I (.\Source\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4BD10894)
@@ -472,7 +472,7 @@ I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (.\Source\BSP\sys_time.h )(0x5451CE27)
 I (Source\APP\touch.h)(0x5802283C)
 I (Source\APP\Relay.h)(0x5A79255A)
@@ -603,12 +603,12 @@ I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (Source\APP\Beep.h)(0x56CE918B)
 I (Source\APP\Errorcode.h)(0x53A7FADA)
 I (.\Source\BSP\osal_snv.h)(0x5512747A)
 I (.\Source\BSP\RTC_Driver.h)(0x580DD573)
-I (Source\APP\Display.h)(0x5BBEB511)
+I (Source\APP\Display.h)(0x5C7E23B3)
 I (.\Source\BSP\sys_time.h )(0x5451CE27)
 I (Source\APP\touch.h)(0x5802283C)
 I (.\Source\util\Task.h)(0x5A699BBB)
@@ -689,7 +689,7 @@ I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (.\Source\BSP\Bsp.h)(0x5A69C408)
 I (Source\APP\ctype.h)(0x55681557)
 I (Source\APP\beep.h)(0x56CE918B)
@@ -749,12 +749,12 @@ I (.\Source\BSP\hal_types.h)(0x54BA1117)
 I (.\Source\BSP\hal_rpc.h)(0x5821DC43)
 I (.\Source\BSP\common.h)(0x58BD342E)
 I (.\Source\FWLib\inc\stm32f10x_flash.h)(0x4BD1086A)
-I (Source\APP\cminterface.h)(0x5BBEB8EE)
+I (Source\APP\cminterface.h)(0x5C7E00E1)
 I (Source\APP\Beep.h)(0x56CE918B)
 I (Source\APP\Errorcode.h)(0x53A7FADA)
 I (.\Source\BSP\osal_snv.h)(0x5512747A)
 I (.\Source\BSP\RTC_Driver.h)(0x580DD573)
-I (Source\APP\Display.h)(0x5BBEB511)
+I (Source\APP\Display.h)(0x5C7E23B3)
 I (.\Source\BSP\sys_time.h )(0x5451CE27)
 I (Source\APP\touch.h)(0x5802283C)
 I (.\Source\util\Task.h)(0x5A699BBB)
@@ -1043,5 +1043,5 @@ I (.\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
 I (.\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
 I (.\Source\FWLib\inc\misc.h)(0x4BD1086A)
 F (.\lib\0862100000STM32F103.lib)(0x5B34974E)()
-F (.\Source\font\font.c)(0x5BC6DD8B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\font.o --depend .\obj\font.d)
+F (.\Source\font\font.c)(0x5C7E24E6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\font.o --depend .\obj\font.d)
 I (Source\font\font.h)(0x5A211ACD)
