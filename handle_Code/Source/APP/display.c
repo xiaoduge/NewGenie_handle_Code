@@ -3099,6 +3099,18 @@ void Disp_KeyHandler_Calibrate_idle(int key,int state)
     }
 }
 
+void Disp_KeyHandler_wait_qtw(int key,int state)
+{
+    switch(gDisplay.curPage.ucSub)
+    {
+    case DISPLAY_SUB_PAGE_IDLE:
+        Disp_KeyHandler_qtw_tw(key,state);
+        break;
+    }
+}
+
+
+
 void Disp_KeyHandler(int key,int state)
 {
 
@@ -3167,6 +3179,9 @@ void Disp_KeyHandler(int key,int state)
         break;
     case DISPLAY_PAGE_QUANTITY_TAKING_WATER:
         Disp_KeyHandler_qtw(key,state);
+        break;
+    case DISPLAY_PAGE_WAIT:
+        Disp_KeyHandler_wait_qtw(key,state);
         break;
     }
 }
@@ -3730,7 +3745,7 @@ void Disp_DisplayStaNotify(uint8_t ucState)
 }
 
 
-void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData, uint8_t ucAlarmState)
+void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData, uint8_t ucExtraData,uint8_t ucAlarmState)
 {
     uint8_t ucOldState = gDisplay.ucOperState;
 
@@ -3751,8 +3766,14 @@ void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData, uint8_t ucAlarmS
         }
         else
         {   
-        	Disp_DisplayStaNotify(APP_PACKET_HS_STATE_WAIT);
-            //Disp_DisplayStaNotify(APP_PACKET_HS_STATE_RUN);
+            if (Disp_GetTwFlag(ucExtraData))
+            {
+    	        Disp_DisplayStaNotify(APP_PACKET_HS_STATE_WAIT);
+            }
+            else
+            {
+                Disp_DisplayStaNotify(APP_PACKET_HS_STATE_RUN);
+            }
             
             Disp_DisplayTWNotify(FALSE);
         }           
@@ -3798,7 +3819,7 @@ void Disp_DisplayStateNotify(uint8_t ucState,uint8_t ucAddData, uint8_t ucAlarmS
 
 void Disp_DisplayHeartBeatNotify(APP_PACKET_HO_STATE_STRU *pHoState)
 {
-     Disp_DisplayStateNotify(pHoState->ucState,pHoState->ucAddData, pHoState->ucAlarmState);
+     Disp_DisplayStateNotify(pHoState->ucState,pHoState->ucAddData,pHoState->ucResult,pHoState->ucAlarmState);
 }
 
 void Disp_OpsAdrSet(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg)
@@ -3933,7 +3954,7 @@ void Disp_DisplayHandleIndConf(uint8_t ucTrxIndex,APP_PACKET_ONLINE_NOTI_CONF_ST
         break;
     }
     
-    Disp_DisplayStateNotify(pInfo->ucState,pInfo->ucAddData, pInfo->ucAlarmState);
+    Disp_DisplayStateNotify(pInfo->ucState,pInfo->ucAddData,0, pInfo->ucAlarmState);
     
 }
 
@@ -4097,7 +4118,7 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
                //|| APP_PACKET_HS_STATE_QTW != pStaMsg->ucState)
            if (Disp_GetTrxIndex() == ucTrxIndex)
            {
-               Disp_DisplayStateNotify(pStaMsg->ucState,pStaMsg->ucAddData, pStaMsg->ucAlarmState);
+               Disp_DisplayStateNotify(pStaMsg->ucState,pStaMsg->ucAddData, pStaMsg->ucResult,pStaMsg->ucAlarmState);
            }
        }
        break;
