@@ -66,7 +66,7 @@ I (Source\APP\display.h)(0x5C7E23B3)
 I (.\Source\BSP\sys_time.h )(0x5451CE27)
 I (Source\APP\touch.h)(0x5802283C)
 I (Source\APP\LCD.h)(0x5A21180D)
-I (Source\APP\CanCmd.h)(0x5B88AAB4)
+I (Source\APP\CanCmd.h)(0x5C81B4B0)
 I (Source\APP\cytma.h)(0x5A72E523)
 I (Source\APP\zb.h)(0x5B4C3886)
 F (.\Source\APP\app_cfg.h)(0x5A925070)()
@@ -494,7 +494,7 @@ I (Source\APP\UartCmd.h)(0x56C8673E)
 I (.\Source\BSP\hal_defs.h)(0x554EC685)
 I (.\Source\BSP\Common\bmp.h)(0x5817F574)
 I (.\Source\BSP\Common\button.h)(0x58ABF958)
-I (Source\APP\CanCmd.h)(0x5B88AAB4)
+I (Source\APP\CanCmd.h)(0x5C81B4B0)
 I (.\Source\BSP\sys_time.h)(0x5451CE27)
 I (Source\APP\zb.h)(0x5B4C3886)
 F (.\Source\APP\Printf.c)(0x58195964)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\printf.o --depend .\obj\printf.d)
@@ -551,7 +551,7 @@ I (.\Source\util\voslog.h)(0x580DD5CA)
 I (Source\APP\LCD.h)(0x5A21180D)
 I (.\Source\font\font.h)(0x5A211ACD)
 I (D:\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
-F (.\Source\APP\CanCmd.c)(0x5BBEB5CC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\cancmd.o --depend .\obj\cancmd.d)
+F (.\Source\APP\CanCmd.c)(0x5C81B4A5)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I .\Source\CMSIS\CM3\CoreSupport -I .\Source\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Source\FWLib\inc -I .\Source\APP -I .\Source\BSP -I .\Source\FWLib -I .\Source\uCOS-II\Source -I .\Source\uCOS-II\uC-CPU -I .\Source\uCOS-II\uC-LIB -I .\Source\uCOS-II\Ports -I .\Source\util -I .\Source\BSP\Common -I .\Source\FATFS -I .\Source\STM32_USB-FS-Device_Driver\inc -I .\Source\HAL\USBCDC -I .\Source\font -I .\Source\SD_Card -I .\Source\SD_Card\SD-I.\RTE\_SRAM-ID:\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD -DUSE_STM3210C_EVAL -DxIAP -DUSE_USART1_STDIO -DCAN_ADR_FILTER -DSERIAL_DEBUG -DCODEGB_48-o .\obj\cancmd.o --depend .\obj\cancmd.d)
 I (.\Source\uCOS-II\Source\ucos_ii.h)(0x4892DF5C)
 I (.\Source\APP\app_cfg.h)(0x5A925070)
 I (.\Source\APP\os_cfg.h)(0x5458B708)
@@ -581,7 +581,7 @@ I (.\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
 I (.\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
 I (.\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
 I (.\Source\FWLib\inc\misc.h)(0x4BD1086A)
-I (Source\APP\CanCmd.h)(0x5B88AAB4)
+I (Source\APP\CanCmd.h)(0x5C81B4B0)
 I (.\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
 I (Source\APP\DtypeStm32.h)(0x56D58756)
 I (.\Source\util\msg.h)(0x5437E804)
@@ -729,7 +729,7 @@ I (.\Source\FWLib\inc\stm32f10x_sdio.h)(0x4BD1086A)
 I (.\Source\FWLib\inc\stm32f10x_spi.h)(0x4BD1086A)
 I (.\Source\FWLib\inc\stm32f10x_usart.h)(0x4BD1086C)
 I (.\Source\FWLib\inc\misc.h)(0x4BD1086A)
-I (Source\APP\CanCmd.h)(0x5B88AAB4)
+I (Source\APP\CanCmd.h)(0x5C81B4B0)
 I (.\Source\FWLib\inc\stm32f10x_can.h)(0x4BD1086A)
 I (Source\APP\DtypeStm32.h)(0x56D58756)
 I (.\Source\util\msg.h)(0x5437E804)

@@ -966,6 +966,7 @@ void CanCcbTimeout(UINT8 ucIndex,UINT16 usPara)
     switch(ucTmp)
     {
     case MACHINE_STATE_MAIN_WAIT_OPRATION_RSP:
+    case MACHINE_STATE_MAIN_WAIT_TW_RSP:
         Disp_DisplayHandleOpsTimeout((usPara&0XFF));
         break;
     case MACHINE_STATE_MAIN_WAIT_REGISTER_RSP:
@@ -1508,15 +1509,24 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
     
     APP_PACKET_HO_STRU *pOpsMsg = (APP_PACKET_HO_STRU *)pucMsg;
     
+    if (APP_PACKET_HO_QTW == pOpsMsg->ucOpsType)
+    {
+        APP_PACKET_HO_QTW_REQ_STRU  *pLoad = (APP_PACKET_HO_QTW_REQ_STRU *)(pOpsMsg->aucData); 
+
+        if (pLoad->ucAction)
+        {
+            iTimerLen = CAN_WAIT_TW_RSP_TIEMR_LENGTH;
+        }
+    }
+
     // report device info to host
     if (MACHINE_STATE_IDLE != CanCcb[ucIndex].ucMachineState)
     {
-        return 0XFF;
-    }
-
-    if (APP_PACKET_HO_QTW == pOpsMsg->ucOpsType)
-    {
-        iTimerLen = CAN_WAIT_TW_RSP_TIEMR_LENGTH;
+        if ((APP_PACKET_HO_QTW  != pOpsMsg->ucOpsType) 
+            || (CanCcb[ucIndex].ucMachineState != MACHINE_STATE_MAIN_WAIT_TW_RSP))
+        {
+            return 0XFF;
+        }
     }
 
     // set to main controller's address
@@ -1528,8 +1538,15 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
 	    if (!(pOpsMsg->hdr.ucMsgType & 0x80))
         {   
     		AddTimer(TIMER_CCB_BEGIN + ucIndex,OS_TMR_OPT_ONE_SHOT,(iTimerLen/1000*OS_TMR_CFG_TICKS_PER_SEC),pOpsMsg->ucOpsType);
-    		
-    		CanCcb[ucIndex].ucMachineState = MACHINE_STATE_MAIN_WAIT_OPRATION_RSP;
+
+            if (APP_PACKET_HO_QTW == pOpsMsg->ucOpsType )
+            {
+		        CanCcb[ucIndex].ucMachineState = MACHINE_STATE_MAIN_WAIT_TW_RSP;
+            }
+            else
+            {
+		        CanCcb[ucIndex].ucMachineState = MACHINE_STATE_MAIN_WAIT_OPRATION_RSP;
+            }
         }
 
         //VOS_LOG(VOS_LOG_ERROR,"send Ops  %d&%d\r\n",ucIndex,pOpsMsg->ucOpsType);
