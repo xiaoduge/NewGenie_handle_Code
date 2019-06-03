@@ -1525,8 +1525,12 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
         if ((APP_PACKET_HO_QTW  != pOpsMsg->ucOpsType) 
             || (CanCcb[ucIndex].ucMachineState != MACHINE_STATE_MAIN_WAIT_TW_RSP))
         {
+            VOS_LOG(VOS_LOG_ERROR,"Error State  ops %d, state %d\r\n",pOpsMsg->ucOpsType,CanCcb[ucIndex].ucMachineState);
+        
             return 0XFF;
         }
+        
+        VOS_LOG(VOS_LOG_ERROR,"send Ops  %d\r\n",pOpsMsg->ucOpsType);
     }
 
     // set to main controller's address
@@ -1547,6 +1551,7 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
             {
 		        CanCcb[ucIndex].ucMachineState = MACHINE_STATE_MAIN_WAIT_OPRATION_RSP;
             }
+            
         }
 
         //VOS_LOG(VOS_LOG_ERROR,"send Ops  %d&%d\r\n",ucIndex,pOpsMsg->ucOpsType);

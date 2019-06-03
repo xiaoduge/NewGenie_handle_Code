@@ -261,6 +261,10 @@
 
 int isI2 = 0;
 int isQtwing = 0;  //QTWING;
+uint8_t  isInUsePage = 0;
+uint16_t isInUseTimer = 0;
+uint8_t isUpdTimer = 1;
+
 
 typedef enum
 {
@@ -2191,6 +2195,7 @@ void Disp_ShowTime(void)
 void Disp_ShowEmptyTank(int xoff, int yoff)
 {
     char *text;
+    isInUsePage = 0;
     switch(gDisplay.ucLan)
     {
     default:
@@ -2330,6 +2335,7 @@ void Disp_DisplayIdlePage(void)
     char *text;
     
     gDisplay.ucOperState = APP_PACKET_HS_STATE_IDLE;
+    isInUsePage = 0;
 
     // display text info
     switch(gDisplay.ucLan)
@@ -2356,6 +2362,7 @@ void Disp_DisplayInUsePage(void)
     char *text;
 
     gDisplay.ucOperState = APP_PACKET_HS_STATE_RUN;
+    isInUsePage = 1;
 
     // display text info
     switch(gDisplay.ucLan)
@@ -2384,6 +2391,7 @@ void Disp_DisplayWaitPage(void)
     char *text;
 
     gDisplay.ucOperState = APP_PACKET_HS_STATE_WAIT;
+    isInUsePage = 0;
 
     // display text info
     switch(gDisplay.ucLan)
@@ -2410,6 +2418,7 @@ void Disp_DisplayRunPage(void)
     char *text;
 
     gDisplay.ucOperState = APP_PACKET_HS_STATE_RUN;
+    isInUsePage = 0;
 
     // display text info
     switch(gDisplay.ucLan)
@@ -2529,7 +2538,7 @@ void Disp_PrepareMove2Ready(void)
 void Disp_CirculationInitPage(void)
 {
     char *text;
-    
+    isInUsePage = 0;
     // display text info
     switch(gDisplay.ucLan)
     {
@@ -2664,7 +2673,7 @@ void Disp_LiquidLevelSettingUpdatePage()
 void Disp_QtwTakingWaterInitPage(void)
 {   
     char *text;
-
+    isInUsePage = 0;
     switch(gDisplay.ucLan)
     {
     default:
@@ -2723,7 +2732,7 @@ void Disp_Move2QtwTakingWater(int bLocal)
 void Disp_NtwInitPage(void)
 {
     char *text;
-
+    isInUsePage = 0;
     switch(gDisplay.ucLan)
     {
     default:
@@ -2786,7 +2795,7 @@ void Disp_DecInitPage(void)
     char *text;
     
     gDisplay.ucOperState = APP_PACKET_HS_STATE_DEC;
-    
+    isInUsePage = 0;
     switch(gDisplay.ucLan)
     {
     default:
@@ -3183,6 +3192,8 @@ void Disp_KeyHandler(int key,int state)
     case DISPLAY_PAGE_WAIT:
         Disp_KeyHandler_wait_qtw(key,state);
         break;
+    default:
+        break;
     }
 }
 
@@ -3357,6 +3368,20 @@ void Disp_SecondTask(void)
         if ((gDisplay.usSeconds % 60) == 0)
         {
             // begin modify for V2: remark precompiler: SHOW_TIME 
+        }
+    }
+    if(isInUsePage)
+    {
+        if(isUpdTimer)
+        {
+            isInUseTimer = gDisplay.usSeconds;
+            isUpdTimer = 0;
+        }
+        
+        if(gDisplay.usSeconds - isInUseTimer > 3)
+        {
+            Disp_DisplayRunPage();
+            isUpdTimer = 1;
         }
     }
 }
@@ -3983,6 +4008,7 @@ void Disp_BtnTwClick(void)
         }
         break;
     case APP_PACKET_HS_STATE_QTW:
+    case APP_PACKET_HS_STATE_WAIT:
         Disp_SndTakingWaterMsg(APP_PACKET_HO_ACTION_STOP,0);
         break;
     case APP_PACKET_HS_STATE_DEC:

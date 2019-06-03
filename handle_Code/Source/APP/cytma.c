@@ -750,7 +750,7 @@ UINT8 CYTMA_ItfProcess(Message *pMsg)
 int CYTMA_sh(int event,int chl,void *para)
 {
     Message *Msg;
-    //MainAlarmWithDuration(1);
+    MainAlarmWithDuration(1);
 
     if (DICA_SENSOR_EVENT_FALLING == event)
     {
