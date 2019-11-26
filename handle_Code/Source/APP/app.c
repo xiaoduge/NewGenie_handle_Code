@@ -233,6 +233,8 @@ void SecondTimer(void)
     CanCcbSecondTask();
 
     zbSecondTask();
+    
+    CYTMA_second();
 
     //AlarmToggle();
 

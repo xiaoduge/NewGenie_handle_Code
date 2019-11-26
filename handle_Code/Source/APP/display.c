@@ -1859,9 +1859,13 @@ void Disp_UpdateWaterQuality(float fValue)
 
     //VOS_LOG(VOS_LOG_DEBUG,"Disp_UpdateWaterQuality %d&%f",(int)fValue*10,fValue);
     
-    if (gDisplay.ucUnit)
+    if (gDisplay.ucUnit && (1 != isI2))
     {
         fValue = toConductivity(fValue);
+        if(fValue < 0.055)
+        {
+            fValue = 0.055;
+        }
 
         if (fValue < 1)
         {
@@ -3040,7 +3044,11 @@ void Disp_TouchHandler(TOUCH_EVENT *event)
         return; // for welcome display
     }
 
-    gDisplay.usIdleLcdTimes = 0;  
+    //gDisplay.usIdleLcdTimes = 0; 
+    if(event->usEvent)
+    {
+        gDisplay.usIdleLcdTimes = 0;
+    }
 
     if (!LCD_GetBackLightState()
         && (event->usEvent))
@@ -3055,6 +3063,10 @@ void Disp_TouchHandler(TOUCH_EVENT *event)
         Disp_EnableScreenSaver(FALSE);
         return;
     }  
+
+#if (IWDG_SUPPORT > 0)
+    IWDG_Feed();
+#endif
 
     //if (sTsCali.sCalibrating)
     //{
@@ -4466,9 +4478,9 @@ void Disp_Init(void)
 
     gDisplay.usPulseNum        = 450;
 
-    gDisplay.fWaterQuality     = 18.2;
-
-    gDisplay.fWaterPPB         = 3;
+    gDisplay.fWaterQuality     = 0;
+    gDisplay.iTemperature      = 0;
+    gDisplay.fWaterPPB         = 0;
 
     gDisplay.ucTwType          = APP_DEV_HS_SUB_NUM;
 

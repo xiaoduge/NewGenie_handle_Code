@@ -131,6 +131,8 @@ static void cytma_data_proc(struct cytma *ts);
 
 #define TP_NUM_MAX				(5)			// ??5???
 
+#define TP_DEAD_LOCK_CHECK_PERIOD (10)
+
 #define swab16(x) ((u16)(               \
     (((u16)(x) & (u16)0x00ffU) << 8) |          \
     (((u16)(x) & (u16)0xff00U) >> 8)))
@@ -154,6 +156,10 @@ u8 TpMask ;
 
 u16 BtnStatus;
 u8 BtnMask ;
+
+u16 wdtTimer;
+
+static int cymt_second;
 
 void I2C_Wait(void);
 
@@ -430,6 +436,20 @@ void CYTMA568_RD_Reg(u16 reg,u8 *buf,u8 len)
 
 } 
 
+void cytma_hw_reset()
+{
+	FT_RESET_L();			
+	DelayMs(50);
+ 	FT_RESET_H();			    
+	DelayMs(50);  
+}
+
+
+static int cytma_get_pendown_state(void)
+{
+    return !stm32_gpio_get_value(CYTMA_NIRQ_PIN);
+}
+
 /*****************************************************************
 
 	函数功能：	CYTMA568初始化
@@ -455,14 +475,15 @@ u8 CYTMA568_Init(void)
 	GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_PP;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	TpNum=0;
-	I2C_Configuration();      	
-	FT_RESET_L();			
-	DelayMs(20);
- 	FT_RESET_H();			    
-	DelayMs(50);  
-	
+	I2C_Configuration();  
+
+    cytma_hw_reset();
+    
 	temp[0]=0x30;
 	temp[1]=0x03;
+
+    // 2019/05/31 add for robust workaround
+    wdtTimer = 0;
 	
 //	addr = 0;
 //	i = 1;
@@ -567,8 +588,61 @@ u8 CYTMA568_Scan(void)
 
 }
 
+void cytma_wdt_work(void)
+{
+   u8 cmd[32];
+   int cmd_offset = 0;
+   int i;
+   u8 return_val=0;
+
+   cmd[cmd_offset++] = 4;
+   cmd[cmd_offset++] = 0;
+   cmd[cmd_offset++] = 5;
+   cmd[cmd_offset++] = 0;
+   cmd[cmd_offset++] = 0x2f;
+   cmd[cmd_offset++] = 0x0; /* reserved */
+   cmd[cmd_offset++] = 0;
+
+   /* Set Data */
+   I2C_Start();     
+   I2C_SendByte(FT_CMD_WR);                                                       
+   for(i=0;i<cmd_offset;i++)
+   {      
+       return_val = I2C_SendByte(cmd[i]);
+       if(return_val) break;  
+   }
+   I2C_Stop();  
+
+   if (return_val)
+   {
+       cytma_hw_reset();
+   }
+
+}
+
 void CYTMA_second(void)
 {
+   cymt_second++;
+
+   if (cytma_get_pendown_state()) 
+   {
+       wdtTimer++;
+       
+       if (wdtTimer >= TP_DEAD_LOCK_CHECK_PERIOD)
+       {
+          cytma_hw_reset();
+       }
+   }
+   else
+   {
+        wdtTimer = 0;
+        /* handshake to chip */
+
+        if (0 == (cymt_second % 8))
+        {
+            cytma_wdt_work();
+        }
+   }
 
 }
 
@@ -621,7 +695,7 @@ static int cytma_open(struct cytma *ts)
     return 0;
 }
 
-
+#if 0
 void cytma_report(void *proc ,void *para)
 {
    Message *Msg;
@@ -648,11 +722,14 @@ void cytma_delay_check_cb(void *para)
 {
      cytma_report(cytma_delay_check_proc,para);
 }
+#endif
 
 static void cytma_data_proc(struct cytma *ts)
 {
     struct ts_event tc;
     TOUCH_EVENT te;
+
+    wdtTimer = 0;
 
     //printf("tsc0 \r\n");
     if (cytma_is_pen_down(ts)) 
@@ -685,7 +762,7 @@ static void cytma_data_proc(struct cytma *ts)
         
         }
         // add timer
-        sys_timeout(CYTMA_TIMER_CHECK_PERIOD,SYS_TIMER_ONE_SHOT,CYTMA_TIMER_CHECK_PERIOD,cytma_delay_check_cb,ts,&ts->to4check);
+        //sys_timeout(CYTMA_TIMER_CHECK_PERIOD,SYS_TIMER_ONE_SHOT,CYTMA_TIMER_CHECK_PERIOD,cytma_delay_check_cb,ts,&ts->to4check);
         
     }
 #if 0    
@@ -764,11 +841,6 @@ int CYTMA_sh(int event,int chl,void *para)
         }
     }
     return 0;
-}
-
-static int cytma_get_pendown_state(void)
-{
-    return !stm32_gpio_get_value(CYTMA_NIRQ_PIN);
 }
 
 
