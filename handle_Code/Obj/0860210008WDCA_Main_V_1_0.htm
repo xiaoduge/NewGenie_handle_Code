@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Obj\0860210008WDCA_Main_V_1_0.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Obj\0860210008WDCA_Main_V_1_0.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Oct 22 15:27:50 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Mar 04 10:03:53 2021
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1320,10 +1320,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_ShowInfo
 </UL>
 
-<P><STRONG><a name="[126]"></a>Disp_LiquidLevelUpdatePage</STRONG> (Thumb, 106 bytes, Stack size 40 bytes, display.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Disp_LiquidLevelUpdatePage &rArr; __2sprintf
+<P><STRONG><a name="[126]"></a>Disp_LiquidLevelUpdatePage</STRONG> (Thumb, 126 bytes, Stack size 40 bytes, display.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Disp_LiquidLevelUpdatePage &rArr; LCD_ClearRect &rArr; LCD_AddressSet &rArr; LCD_WR_CMD
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_SelectFont
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ClearRect
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_SelectFont
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -1473,7 +1474,7 @@ Global Symbols
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_SndTakingWaterMsg
 </UL>
 
-<P><STRONG><a name="[136]"></a>Disp_SndTakingWaterMsg</STRONG> (Thumb, 224 bytes, Stack size 40 bytes, display.o(.text))
+<P><STRONG><a name="[136]"></a>Disp_SndTakingWaterMsg</STRONG> (Thumb, 226 bytes, Stack size 40 bytes, display.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
 <LI>Call Chain = Disp_SndTakingWaterMsg &rArr; CanCcbSndHandleOperationMsg &rArr; CanSndSappCmd &rArr; SHZNAPP_CanResp &rArr; CanSndBufPush &rArr; SndCanData &rArr; CanMsgSndCb &rArr; MainAlarmWithDuration &rArr; AddTimer &rArr; ModTimer
 </UL>
@@ -1843,7 +1844,7 @@ Global Symbols
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 
-<P><STRONG><a name="[161]"></a>Disp_DrawSelString</STRONG> (Thumb, 348 bytes, Stack size 48 bytes, display.o(.text), UNUSED)
+<P><STRONG><a name="[161]"></a>Disp_DrawSelString</STRONG> (Thumb, 346 bytes, Stack size 48 bytes, display.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 
@@ -2530,6 +2531,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_ClearCross
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_DisplayHandleOpsEntry
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_LiquidLevelUpdatePage
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_UpdateWaterQuality
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_UpdateTitle4Status
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_ClearButtonScreen

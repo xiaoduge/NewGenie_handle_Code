@@ -2018,22 +2018,28 @@ void Disp_LiquidLevelUpdatePage(void)
 	{
 		return;
 	}
-  
-    sprintf(buf,"%d",(gDisplay.ucLiquidLevel >= 100 ? 100 : gDisplay.ucLiquidLevel));
+
+	if(0 < gDisplay.ucLiquidLevel)
+	{
+		sprintf(buf,"%d",(gDisplay.ucLiquidLevel >= 100 ? 100 : gDisplay.ucLiquidLevel));
             
-    //xoff = MAKE_CXY_CORD(SHOW_TITLE_STATUS_X,SHOW_TITLE_STATUS_W) - curFont->sizeX/2;
-    xoff = SHOW_LEVEL_UNIT_X - curFont->sizeX * (strlen(buf)) - 3;
-    
-    yoff = MAKE_CXY_CORD(SHOW_TITLE_STATUS_Y,SHOW_TITLE_STATUS_H) - curFont->sizeY/2 ;
-    
-    curFont->DrawText(xoff,yoff,(u8 *)buf,gDisplay.usForColor,gDisplay.usBackColor);
+	    //xoff = MAKE_CXY_CORD(SHOW_TITLE_STATUS_X,SHOW_TITLE_STATUS_W) - curFont->sizeX/2;
+	    xoff = SHOW_LEVEL_UNIT_X - curFont->sizeX * (strlen(buf)) - 3;
+	    
+	    yoff = MAKE_CXY_CORD(SHOW_TITLE_STATUS_Y,SHOW_TITLE_STATUS_H) - curFont->sizeY/2 ;
+	    
+	    curFont->DrawText(xoff,yoff,(u8 *)buf,gDisplay.usForColor,gDisplay.usBackColor);
 
-    Disp_SelectFont(&font8);
+	    Disp_SelectFont(&font8);
 
-    curFont->DrawText(SHOW_LEVEL_UNIT_X ,SHOW_LEVEL_UNIT_Y,"%",gDisplay.usForColor,gDisplay.usBackColor);
+	    curFont->DrawText(SHOW_LEVEL_UNIT_X ,SHOW_LEVEL_UNIT_Y,"%",gDisplay.usForColor,gDisplay.usBackColor);
 
-    Disp_SelectFont(oldfont);
-    
+	    Disp_SelectFont(oldfont);
+	}
+	else
+	{
+		LCD_ClearRect(150,3,235,30,gDisplay.usBackColor);
+	}
 }
 
 void Disp_ShowButtons(BOOL bShow)
