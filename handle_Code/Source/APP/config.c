@@ -43,7 +43,7 @@ const char DataStr[]=__DATE__;
 const char TimeStr[]=__TIME__; 
 
 //const char version[] = {"STM32F103_HANALE_V1.0"};
-const char version[] = {"0.1.2.210304_94401"};
+const char version[] = {"0.1.2.210420_94401"};
 
 #if APP_TYPE == APP_TYPE_HYPER
 const char dtype[]   = {"SHLF0710"};

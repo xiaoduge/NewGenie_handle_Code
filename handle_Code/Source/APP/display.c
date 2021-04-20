@@ -1940,12 +1940,23 @@ void Disp_UpdateRti4State(float fPpb)
     {
         //sprintf(buf,"%.1f",gDisplay.fWaterPPB);
 
+#if 0
 #ifdef Decimal1
         Disp_Int2float((int)((gDisplay.fWaterPPB)*10),buf);
 #else
 		int tmpPPB = (int)(gDisplay.fWaterPPB + 0.5);
 		sprintf(buf, "%d", tmpPPB);
 #endif
+#endif
+		if(gDisplay.fWaterPPB < 10) //TOC小于10，显示一位小数
+		{
+			 Disp_Int2floatFormat(gDisplay.fWaterPPB * 10 + 0.5, 2, 1, buf);
+		}
+		else
+		{
+			int tmpPPB = (int)(gDisplay.fWaterPPB + 0.5);
+			sprintf(buf, "%d", tmpPPB);
+		}
         //xoff = SHOW_RTI_STATE_SHOW_X - curFont->sizeX/2*3;
         xoff = SHOW_WATER_PPB_UNIT_X - curFont->sizeX * (strlen(buf)) - 8;
         
