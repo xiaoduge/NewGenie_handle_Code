@@ -257,7 +257,8 @@ typedef struct
     uint32_t bit1Admin        : 1;
     uint32_t bit1ScreenSaver  : 1;
     uint32_t bit1InvalidBtns  : 1;
-
+    uint32_t bit1InvalidScreen  : 1;
+    
 
     uint8_t ucTrxMap;  /* refer APP_TRX_TYPE_ENUM */
     
@@ -332,6 +333,8 @@ typedef struct
     uint8_t ucTwType;
 
     uint8_t  ucHaveTOC;
+
+    uint8_t ucCurTitleLen;
 
 }DISPLAY_STRU;
 

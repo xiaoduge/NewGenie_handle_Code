@@ -1,16 +1,9 @@
-
-#include    <ucos_ii.h>
-
-#include    <string.h>
-
+#include <ucos_ii.h>
+#include <string.h>
 #include "stm32f10x.h"
-
 #include "stm32_eval.h"
-
 #include "LCD.h"
-
 #include "font.h"
-
 #include "math.h"
 
 #define LCD_Pin_RS      GPIO_Pin_1
@@ -432,10 +425,10 @@ void LCD_ChipInit(void)
     LCD_WR_CMD(0x00,0xB7);  
     LCD_WR_DATA(0x00,0x35); 
     
-    LCD_WR_CMD(0x00,0xBB);                  //vcom
+    LCD_WR_CMD(0x00,0xBB);     //vcom
     LCD_WR_DATA(0x00,0x30);    //30
     
-    LCD_WR_CMD(0x00,0xC0);                    //
+    LCD_WR_CMD(0x00,0xC0);     //
     LCD_WR_DATA(0x00,0x2C); 
     
     LCD_WR_CMD(0x00,0xC2);  
@@ -984,7 +977,7 @@ void LCD_GetStringGB8x16TextSize(u8 *s, int* sx, int* sy)
     int offset = strlen((char *)s);
 
     *sx = offset*8; 
-    *sy = offset*16; 
+    *sy = 1*16; 
 }
 
 
@@ -1254,7 +1247,7 @@ void LCD_GetStringGB32x32TextSize(u8 *s, int* sx, int* sy)
     int offset = strlen((char *)s);
 
     *sx = offset*16; 
-    *sy = offset*32; 
+    *sy = 1*32; 
 }
 
 
@@ -1320,7 +1313,7 @@ void LCD_GetStringGB48x48TextSize(u8 *s, int* sx, int* sy)
     int offset = strlen((char *)s);
 
     *sx = offset*24; 
-    *sy = offset*48; 
+    *sy = 1*48; 
 }
 
 
@@ -1414,7 +1407,7 @@ void LCD_GetStringGB24x24TextSize(u8 *s, int* sx, int* sy)
     int offset = strlen((char *)s);
 
     *sx = offset*12; 
-    *sy = offset*24; 
+    *sy = 1*24; 
 }
 
 /*****************************************************************************************
@@ -1457,8 +1450,8 @@ void LCD_GetStringGB16x16TextSize(u8 *s, int* sx, int* sy)
 {
     int offset = strlen((char *)s);
 
-    *sx = offset*12; 
-    *sy = offset*24; 
+    *sx = offset*8; 
+    *sy = 1*16; 
 }
 
 

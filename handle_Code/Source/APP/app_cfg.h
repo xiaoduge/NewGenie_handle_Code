@@ -84,7 +84,7 @@ typedef enum
 enum KEYS_ENUM
 {
     KEY_CODE_HAND_KEY = 0,
-    KEY_CODE_FOOT_KEY,           // …Ë÷√∞¥º¸S
+    KEY_CODE_FOOT_KEY,          
     KEY_CODE_NUM,   
 };
 

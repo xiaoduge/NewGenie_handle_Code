@@ -57,8 +57,6 @@ typedef enum
 
     SAPP_CMD_DATA_EXT = 0x60, // extension for SAPP_CMD_DATA
     
-    
-        
 }SAPP_CMD_ENUM;
 
 typedef enum
@@ -67,7 +65,6 @@ typedef enum
     SAPI_CMD_DATA      = 0x21, /* same as SAPP_CMD_DATA for compatible reason*/
         
 }SAPI_CMD_ENUM;
-
 
 typedef enum
 {
@@ -88,7 +85,11 @@ typedef enum
 	// for User Serial Number Management
     SBL_SET_SERIAL_NO           = 0x20,
     SBL_QUERY_SERIAL_NO         = 0x21,
-	
+
+    SBL_SET_MM_INFO             = 0x30,
+    SBL_GET_MM_INFO             = 0x31,
+    
+    SBL_SET_TESTER              = 0x40,  /* 2019/04/09 add */
 }SAPP_CMD_BOOT_ENUM;
 
 typedef enum
@@ -105,23 +106,27 @@ typedef enum
     Interface_CAN ,
 }Interface_t;
 
+
+typedef struct
+{
+   uint8_t rpcSte;
+   uint8_t sbRxBuf[196];
+   uint8_t sbFcs;
+   uint8_t sbIdx;
+   uint8_t sbLen;
+   
+}SAPP_PARSE_STRU;
+
 #define SAPP_PAYLOAD_LEN(len) (len-RPC_FRAME_HDR_SZ)
 
-extern uint8 *const sbRxBuf;
-extern uint8 *const sbTxBuf;
-extern uint8 sbLen;
 extern uint8 sappFlags;
-extern uint8 sappItfType;
-extern uint8 sappItfPort;
-extern uint8 sappTgtType;
 
 uint8 SHZNAPP_CanParse(uint8 *data,uint16 len);
-uint8 SHZNAPP_SerialAppProc(void);
-uint8 SHZNAPP_SerialBootProc(void);
-uint8 SHZNAPP_SerialUnknowProc(void);
-uint8 SHZNAPP_SerialResp(uint8 ucPort);
-uint8 SHZNAPP_SerialParse(uint8 ucPort);
-void SHZNAPP_SetTgtType(uint8 ucType);
-void SHZNAPP_SerialInit(void);
+uint8 SHZNAPP_SerialAppProc(uint8 *sbRxBuf,uint8 *sbTxBuf);
+uint8 SHZNAPP_SerialBootProc(uint8 *sbRxBuf,uint8 *sbTxBuf);
+uint8 SHZNAPP_SerialUnknowProc(uint8 *sbTxBuf);
+uint8 SHZNAPP_SerialResp(uint8 ucPort,uint8_t ucTgtType,uint8 *sbTxBuf);
+uint8 SHZNAPP_SerialParse(uint8 ucPort,SAPP_PARSE_STRU *parse);
+void SHZNAPP_ProtolInit(void);
 
 #endif

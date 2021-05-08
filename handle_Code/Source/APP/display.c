@@ -28,7 +28,7 @@
 
 #include "UartCmd.h"
 
-#include "Sapp.h"
+#include "sapp_ex.h"
 
 #include "cminterface.h"
 
@@ -1759,8 +1759,6 @@ void Disp_CleanTail(int xoff,int yoff,char *text,uint16_t usBkColor)
 
 }
 
-
-
 void Draw_Speed_Progress_Bar()
 {
     int ucloop;
@@ -1791,11 +1789,13 @@ void Disp_ShowTitle(char *strState)//,char *strInfo)
 {
     int xoff;
     int yoff;
+    uint8_t ucTitleLen = strlen(strState);
 
 	if(gDisplay.bit1ScreenSaver)
 	{
 		return;
 	}
+    
     
 	LCD_DrawRectangle(SHOW_TITLE_X,SHOW_TITLE_Y,MAKE_RIGHT_CORD(SHOW_TITLE_X,SHOW_TITLE_W),MAKE_BOTTOM_CORD(SHOW_TITLE_Y,SHOW_TITLE_H),gDisplay.usForColor);
 
@@ -1804,6 +1804,17 @@ void Disp_ShowTitle(char *strState)//,char *strInfo)
     yoff = MAKE_CXY_CORD(SHOW_TITLE_STATE_Y,SHOW_TITLE_STATE_H) - curFont->sizeY/2 ;
     
     curFont->DrawText(xoff,yoff,(u8 *)strState,gDisplay.usForColor,gDisplay.usBackColor);
+
+    {
+        int iFiller;
+        xoff += curFont->sizeX * ucTitleLen;
+        for (iFiller = ucTitleLen; iFiller < gDisplay.ucCurTitleLen;iFiller++)
+        {
+            curFont->DrawChar(xoff,yoff,' ',gDisplay.usForColor,gDisplay.usBackColor);
+            xoff += curFont->sizeX;
+        }
+    }
+    gDisplay.ucCurTitleLen = ucTitleLen;
 }
 
 void Disp_UpdateTitle4Status(int iWaterQuantity)
@@ -1948,7 +1959,7 @@ void Disp_UpdateRti4State(float fPpb)
 		sprintf(buf, "%d", tmpPPB);
 #endif
 #endif
-		if(gDisplay.fWaterPPB < 10) //TOCå°äºŽ10ï¼Œæ˜¾ç¤ºä¸€ä½å°æ•°
+		if(gDisplay.fWaterPPB < 10) //TOCå°äºŽ10ï¼Œæ˜¾ç¤ºä¸€ä½å°æ•?
 		{
 			 Disp_Int2floatFormat(gDisplay.fWaterPPB * 10 + 0.5, 2, 1, buf);
 		}
@@ -2082,9 +2093,15 @@ void Disp_ShowInfo(char *title)
 	{
 		return;
 	}
-    Disp_ClearInfoScreen(gDisplay.usBackColor);
+
+    if (gDisplay.bit1InvalidScreen)
+    {
+        Disp_ClearInfoScreen(gDisplay.usBackColor);
+        gDisplay.bit1InvalidScreen = 0;
+    }
 
     Disp_ShowTitle(title);
+    
     Disp_LiquidLevelUpdatePage();
     
     Disp_ShowWaterQuality(gDisplay.fWaterQuality);
@@ -2273,7 +2290,7 @@ uint8_t Disp_SndTakingWaterMsg(int ucAction,uint32_t ulVolumn)
 
 uint8_t Disp_SndDecPressureMsg(int ucAction,int iOpreatType)
 {
-    uint8_t buf[16];
+    uint8_t buf[32];
     APP_PACKET_HO_STRU *pTw = (APP_PACKET_HO_STRU *)buf;
 
     uint8_t ucTrxIndex = Disp_GetTrxIndex();
@@ -2293,7 +2310,7 @@ uint8_t Disp_SndDecPressureMsg(int ucAction,int iOpreatType)
 
 uint8_t Disp_SndSystemTestRspMsg(uint8_t ucTrxIndex,APP_PACKET_HO_SYSTEMTEST_REQ_STRU *pReq)
 {
-    uint8_t buf[16];
+    uint8_t buf[32];
     APP_PACKET_HO_STRU *pTwt = (APP_PACKET_HO_STRU *)buf;
 
     APP_PACKET_HO_SYSTEMTEST_RSP_STRU     *pLoad = (APP_PACKET_HO_SYSTEMTEST_RSP_STRU *)(pTwt->aucData);
@@ -2313,7 +2330,7 @@ uint8_t Disp_SndSystemTestRspMsg(uint8_t ucTrxIndex,APP_PACKET_HO_SYSTEMTEST_REQ
 
 uint8_t Disp_SndCirMsg(int ucAction)
 {
-     uint8_t buf[16];
+     uint8_t buf[32];
      APP_PACKET_HO_STRU *pCir = (APP_PACKET_HO_STRU *)buf;
 
      APP_PACKET_HO_CIR_REQ_STRU     *pLoad = (APP_PACKET_HO_CIR_REQ_STRU *)(pCir->aucData);
@@ -2332,7 +2349,7 @@ uint8_t Disp_SndCirMsg(int ucAction)
 
 uint8_t Disp_SndTwSpeedMsg(int ucAction)
 {
-    uint8_t buf[16];
+    uint8_t buf[32];
     APP_PACKET_HO_STRU *pSpd = (APP_PACKET_HO_STRU *)buf;
 
     APP_PACKET_HO_SPEED_REQ_STRU     *pLoad = (APP_PACKET_HO_SPEED_REQ_STRU *)(pSpd->aucData);
@@ -2369,7 +2386,7 @@ void Disp_DisplayIdlePage(void)
         text = "Standby";
         break;
     case APP_LAN_CHN:
-        text = "´ý»ú";
+        text = "´ý»ú   ";
         break;
     }
   
@@ -2390,13 +2407,13 @@ void Disp_DisplayInUsePage(void)
     {
     default:
     case APP_LAN_ENG:
-        text = "In Use";
+        text = "In Use ";
         break;
     case APP_LAN_GER:
-        text = "In Use";
+        text = "In Use ";
         break;
     case APP_LAN_CHN:
-        text = "Ê¹ÓÃÖÐ";
+        text = "Ê¹ÓÃÖÐ ";
         break;
     }
  
@@ -2425,7 +2442,7 @@ void Disp_DisplayWaitPage(void)
         text = "Waiting";
         break;
     case APP_LAN_CHN:
-        text = "ÉÔµÈ";
+        text = "ÉÔµÈ   ";
         break;
     }
  
@@ -2446,13 +2463,13 @@ void Disp_DisplayRunPage(void)
     {
     default:
     case APP_LAN_ENG:
-        text = "Ready";
+        text = "Ready  ";
         break;
     case APP_LAN_GER:
-        text = "Ready";
+        text = "Ready  ";
         break;
     case APP_LAN_CHN:
-        text = "¾ÍÐ÷";
+        text = "¾ÍÐ÷   ";
         break;
     }
  
@@ -2565,13 +2582,13 @@ void Disp_CirculationInitPage(void)
     {
     default:
     case APP_LAN_ENG:
-        text = "Recir.";
+        text = "Recir. ";
         break;
     case APP_LAN_GER:
-        text = "Recir.";
+        text = "Recir. ";
         break;
     case APP_LAN_CHN:
-        text = "Ñ­»·";
+        text = "Ñ­»·   ";
         break;
     }
     
@@ -2827,7 +2844,7 @@ void Disp_DecInitPage(void)
         text = "Druck ablassen";
         break;
     case APP_LAN_CHN:
-        text = "Ð¹ Ñ¹";
+        text = "Ð¹ Ñ¹         ";
         break;
     } 
 
@@ -3064,6 +3081,7 @@ void Disp_TouchHandler(TOUCH_EVENT *event)
     //gDisplay.usIdleLcdTimes = 0; 
     if(event->usEvent)
     {
+        //printf("Disp_TouchHandler %d,%d,%d\r\n ",event->usX,event->usY,event->usEvent);
         gDisplay.usIdleLcdTimes = 0;
     }
 
@@ -3156,6 +3174,8 @@ void Disp_KeyHandler(int key,int state)
     {
         return; // for welcome display
     }
+
+    printf("key %d:%d\r\n",key,state);
 
     gDisplay.usIdleLcdTimes = 0;
 
@@ -3310,6 +3330,7 @@ void Disp_EnableScreenSaver(int bEnable)
     }
 
     gDisplay.bit1InvalidBtns = TRUE;
+    gDisplay.bit1InvalidScreen = TRUE;
 
     /* Enter into Scree saver */
     Disp_ClearScreen(gDisplay.usBackColor4ScreenSaver);
@@ -3392,6 +3413,7 @@ void Disp_SecondTask(void)
                 }
                 gDisplay.usIdleLcdTimes = 0;
             }
+            //printf("usIdleLcdTimes %d\r\n",gDisplay.usIdleLcdTimes);
 		}
 
         if ((gDisplay.usSeconds % 60) == 0)
@@ -3614,12 +3636,12 @@ void Disp_UpdateEco(APP_PACKET_RPT_ECO_STRU *pEco)
 				&& gDisplay.ucDevType == gDisplay.ucTwType)
 				||(APP_PACKET_HS_STATE_CIR == gDisplay.ucOperState))
 			{
-						gDisplay.I4.fWaterQ = pEco->ev.fWaterQ;
-						gDisplay.I4.usTemp	= pEco->ev.usTemp;
-						gDisplay.fWaterQuality = pEco->ev.fWaterQ;
-						gDisplay.iTemperature = pEco->ev.usTemp;
-						
-						Disp_ClientRptWQUpdate(APP_EXE_I4_NO);
+				gDisplay.I4.fWaterQ = pEco->ev.fWaterQ;
+				gDisplay.I4.usTemp	= pEco->ev.usTemp;
+				gDisplay.fWaterQuality = pEco->ev.fWaterQ;
+				gDisplay.iTemperature = pEco->ev.usTemp;
+				
+				Disp_ClientRptWQUpdate(APP_EXE_I4_NO);
 			}
 		}
 
@@ -3895,7 +3917,6 @@ void Disp_OpsAdrSet(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg)
 
 		CanCmdSetAdr(usAdr);
 
-		CanCmdInitizeCAN();
 
         CanCcbResetRegisterFlag(Trx2CanCcbIndex(ucTrxIndex));
 
@@ -3968,6 +3989,8 @@ void Disp_ProcessAlarmInd(uint8_t ucInvalidate)
     {
         gDisplay.usBackColor = WHITE;
     }
+
+    gDisplay.bit1InvalidScreen = ucInvalidate;    
    
     if (ucInvalidate) 
     {
@@ -4127,8 +4150,9 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
 
                        if (DISPLAY_PAGE_NORMAL_TAKING_WATER != gDisplay.curPage.ucMain)
                        {
-                          Disp_Update4State(APP_PACKET_HS_STATE_QTW);
-                       }                       
+                          Disp_DisplayStaNotify(APP_PACKET_HS_STATE_QTW);
+                          //Disp_Update4State(APP_PACKET_HS_STATE_QTW);
+                       }   
     
                    }
                    else
@@ -4244,11 +4268,11 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
             if((APP_PACKET_HO_SYS_TEST_TYPE_DEPRESSURE == pSysTest->ucType)
                 && (APP_PACKET_HO_ACTION_START == pSysTest->ucAction))
             {
-                Disp_Update4State(APP_PACKET_HS_STATE_DEC);
+                Disp_DisplayStaNotify(APP_PACKET_HS_STATE_DEC);
             }
             else
             {
-                Disp_Update4State(APP_PACKET_HS_STATE_IDLE);
+                Disp_DisplayStaNotify(APP_PACKET_HS_STATE_IDLE);
             }
             
             Disp_SndSystemTestRspMsg(ucTrxIndex,pSysTest);
@@ -4261,7 +4285,7 @@ void Disp_DisplayHandleOpsEntry(uint8_t ucTrxIndex,APP_PACKET_HO_STRU *pHoMsg,ui
             int iLoop;
             VOS_LOG(VOS_LOG_DEBUG, "APP_PACKET_HO_WQ_NOTIFY %d",iPackets);
 
-            for (iLoop = 0; iLoop < iPackets; iLoop++,pEco++ )
+            for (iLoop = 0; iLoop < iPackets && iLoop < APP_EXE_ECO_NUM; iLoop++,pEco++ )
             {
                 Disp_UpdateEco(pEco);
             }
@@ -4500,6 +4524,8 @@ void Disp_Init(void)
     gDisplay.fWaterPPB         = 0;
 
     gDisplay.ucTwType          = APP_DEV_HS_SUB_NUM;
+
+    gDisplay.bit1InvalidScreen = TRUE;
 
     oldfont = NULL;
 		

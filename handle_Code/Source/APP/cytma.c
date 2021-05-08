@@ -142,6 +142,7 @@ static void cytma_data_proc(struct cytma *ts);
 
 #define CYTMA_TIMER_CHECK_PERIOD (50)
 
+#define CYTMA_IRQn EXTI0_IRQn
 
 // add for shzn
 
@@ -630,6 +631,8 @@ void CYTMA_second(void)
        
        if (wdtTimer >= TP_DEAD_LOCK_CHECK_PERIOD)
        {
+          VOS_LOG(VOS_LOG_ERROR,"Reset Inactive CTS \r\n");
+       
           cytma_hw_reset();
        }
    }
@@ -732,7 +735,7 @@ static void cytma_data_proc(struct cytma *ts)
     wdtTimer = 0;
 
     //printf("tsc0 \r\n");
-    if (cytma_is_pen_down(ts)) 
+    //if (cytma_is_pen_down(ts)) 
     {
         /* pen is down, continue with the measurement */
         cytma_read_values(ts, &tc);
@@ -753,7 +756,7 @@ static void cytma_data_proc(struct cytma *ts)
             }
             touch_report(&te);
         }
-        else
+        else if (event_btn == tc.event)
         {
             te.usX = tc.x;
             te.usY = tc.y;
@@ -807,7 +810,10 @@ UINT8 CYTMA_ItfProcess(Message *pMsg)
     case CYTMA_MESSAGE_IRQ:
         {
            // do something here
+           cymt_second = 0;
+           NVIC_DisableIRQ(CYTMA_IRQn);
            cytma_soft_irq();
+           NVIC_EnableIRQ(CYTMA_IRQn);
         }
         break;
     case CYTMA_MESSAGE_DELAY_CHECK:
@@ -829,7 +835,7 @@ int CYTMA_sh(int event,int chl,void *para)
     Message *Msg;
     MainAlarmWithDuration(1);
 
-    if (DICA_SENSOR_EVENT_FALLING == event)
+    //if (DICA_SENSOR_EVENT_FALLING == event)
     {
         Msg = MessageAlloc(PID_CYTMA,0);
         
@@ -865,10 +871,10 @@ void CYTMA_Init(void)
 
     stm32_gpio_cfgpin(CYTMA_NIRQ_PIN,MAKE_PIN_CFG(0,GPIO_Mode_IN_FLOATING));
     
-    stm32_gpio_cfg_irq(CYTMA_NIRQ_PIN,EXTI_Trigger_Rising_Falling);
+    stm32_gpio_cfg_irq(CYTMA_NIRQ_PIN,EXTI_Trigger_Falling);
     
     // install IRQ Handler
-    InstallSensorHandler(DICA_SENSOR_EVENT_RISING,stm32_gpio_get_ext_line(CYTMA_NIRQ_PIN),FALSE,DICA_TYPE_PERIOD,CYTMA_sh,NULL);
+    // InstallSensorHandler(DICA_SENSOR_EVENT_RISING,stm32_gpio_get_ext_line(CYTMA_NIRQ_PIN),FALSE,DICA_TYPE_PERIOD,CYTMA_sh,NULL);
     
     InstallSensorHandler(DICA_SENSOR_EVENT_FALLING,stm32_gpio_get_ext_line(CYTMA_NIRQ_PIN),TRUE,DICA_TYPE_PERIOD,CYTMA_sh,NULL);
     

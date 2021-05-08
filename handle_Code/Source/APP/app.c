@@ -91,7 +91,7 @@
 
 #include "common.h"
 
-#include "sapp.h"
+#include "sapp_ex.h"
 
 #include "display.h"
 
@@ -114,9 +114,6 @@ static OS_STK AppTaskMainStk[APP_TASK_MAIN_STK_SIZE];
 static OS_STK AppTaskRootStk[APP_TASK_ROOT_STK_SIZE];
 
 //static  OS_EVENT       *AppUserIFMbox;
-
-int ExTick;
-
 
 
 /*
@@ -291,65 +288,38 @@ UINT8 MainSappProc(Message *pMsg)
 {
     UINT8 ucRet = TRUE;
 
-    //MainAlarmWithDuration(1);               
+    uint8_t *sbRxBuf = (uint8_t *)pMsg->data;
 
-    sappItfType = Interface_RS232;
-    sappItfPort = pMsg->msgHead.MsgSeq;
-    
+    UINT8 aucTxBuffer[256];
+
     switch(sbRxBuf[RPC_POS_CMD0])
     {
     case RPC_SYS_APP:
-        ucRet = SHZNAPP_SerialAppProc();
+        ucRet = SHZNAPP_SerialAppProc(sbRxBuf,aucTxBuffer);
         break;
     case RPC_SYS_BOOT:
-        ucRet = SHZNAPP_SerialBootProc();
+        ucRet = SHZNAPP_SerialBootProc(sbRxBuf,aucTxBuffer);
         break;
     default:
-        ucRet = SHZNAPP_SerialUnknowProc();
+        ucRet = SHZNAPP_SerialUnknowProc(aucTxBuffer);
         break;
     }
     if (ucRet )
     {
-        (void)SHZNAPP_SerialResp(sappItfPort);  // Send the SB response setup in the sbRxBuf passed to sblProc().
+        (void)SHZNAPP_SerialResp(pMsg->msgHead.MsgSeq,RPC_UART_SOF,aucTxBuffer);  // Send the SB response setup in the sbRxBuf passed to sblProc().
     }
 
     return 0;
 }
 
-#if USB_SUPPORT > 0
-void USBCDC_CallBack(uint8_t ucPort,uint8_t event)
-{
-    if (0XFF == ucPort) ucPort = 1;
-    
-    if (event & (HAL_UART_RX_FULL|HAL_UART_RX_ABOUT_FULL|HAL_UART_RX_TIMEOUT))
-    {
-        SHZNAPP_SerialParse(ucPort);
-    }
-    
-    if (event & HAL_UART_TX_EMPTY)
-    {
-    
-        if (sappFlags & (1 << SAPP_CMD_RESET))
-        {
-            USBCDC_disconnect();    
-            HAL_SYSTEM_RESET();
-        }
-        else if (sappFlags & (1 << SAPP_CMD_SYS_INIT))
-        {
-            USBCDC_disconnect();    
-            HAL_SYSTEM_RESET();
-        }
-    }
-}
-#endif
 
 void InitKeys(void)
 {
     GPIO_KEY key;
 
-    key.gpio = STM32F103_GPC(9);
-    key.key = KEY_CODE_HAND_KEY;
-    RegisterKey(&key);
+    //key.gpio = STM32F103_GPC(9);
+    //key.key = KEY_CODE_HAND_KEY;
+    //RegisterKey(&key);
 
     key.gpio = STM32F103_GPC(10);
     key.key = KEY_CODE_FOOT_KEY;
@@ -359,9 +329,13 @@ void InitKeys(void)
 }
 void  MainInit (void)
 {
+   uint32_t ulRstFlags;
 
+   ulRstFlags = RCC->CSR;
+
+   RCC_ClearFlag();
+   
    VOS_SetLogLevel(VOS_LOG_DEBUG);
-   UartCmdSetLogLevel(VOS_LOG_INFO);
 
    stm32_gpio_init();
 
@@ -378,12 +352,6 @@ void  MainInit (void)
    BeepInit();
 
    UartCmdInit();
-
-
-#if (USB_SUPPORT > 0)
-   USBCDC_init();
-   USB_SetUsb2UartCallback(USBCDC_CallBack);
-#endif
 
    //Printf_Init();
 
@@ -409,22 +377,12 @@ void  MainInit (void)
 #if (CAN_SUPPORT > 0)
     CanCmdInit();
 #endif
-
-#if (I2C_SUPPORT > 0)
-
-    gpI2cAdpater = hal_i2c_Init();
-
-#endif
-
    KeyboardInit();
 
    InitKeys();
 
    LCD_Init();
 
-#if TSC2007_SUPPORT > 0
-   TSC2007_Init();
-#endif
 
 #if CYTMP_SUPPORT > 0
     CYTMA_Init();
@@ -449,6 +407,8 @@ void  MainInit (void)
    //AddTimer(TIMER_CHECK_KEY,OS_TMR_OPT_PERIODIC,10/(1000/OS_TMR_CFG_TICKS_PER_SEC),0xffff); // 100ms
    
    MainBeepWithDuration(1);
+
+   printf("Ready to Go ,Reset Flags = x%x\r\n",ulRstFlags);
 
 }
 
@@ -574,66 +534,6 @@ static  void  AppTaskCreate(void)
 }
 #endif
 
-/*
-*********************************************************************************************************
-*                                         USER INTERFACE TASK
-*
-* Description : This task updates the LCD screen based on messages passed to it by AppTaskCanCmd().
-*
-* Arguments   : p_arg   is the argument passed to 'AppStartUserIF()' by 'OSTaskCreate()'.
-*
-* Returns     : none
-*********************************************************************************************************
-*/
-#if  0
-static void AppTestFatFs(void)
-{
-      FATFS fs;
-      FRESULT res;
-      FIL file;
-      char data[20];
-      
-    
-      res = f_mount(0, &fs);
-      if(res != FR_OK)
-      {
-          //INFO_Printf("f_mount fail %d\n",res);
-      }
-      else
-      {
-          res = f_open(&file, "0:/data.txt", FA_CREATE_ALWAYS | FA_WRITE);
-          
-          if(res != FR_OK)
-          {
-              //INFO_Printf("f_open fail %d\n",res);
-          }
-          else
-          {
-              f_puts("Test data ....",&file);    
-      
-              f_close(&file); 
-    
-              res = f_open(&file, "0:/data.txt", FA_READ);
-              
-              if(res != FR_OK)
-              {
-                  //INFO_Printf("f_open fail %d\n",res);
-              }
-              else
-              {
-                  if(f_gets(data, sizeof(data), &file)!=NULL)
-                  {
-                      //INFO_Printf(data);
-                  }
-          
-                  f_close(&file); 
-              }
-          }
-      
-      }
-
-}
-#endif
 
 static  void  AppTaskRoot (void *p_arg)
 {
@@ -667,6 +567,7 @@ int  main (void)
     CPU_IntDis();
     /* Set the Vector Table base location at 0x08000000 */
     NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0); 
+    
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); // ylf: 2bits for priority group 
 
     OSInit();                /* Initialize "uC/OS-II, The Real-Time Kernel"              */

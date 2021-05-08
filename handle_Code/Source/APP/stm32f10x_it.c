@@ -28,7 +28,7 @@
 
 //#include "stm32_eval.h"
 #include <stdio.h>
-
+#include <string.h>
 #include <ucos_ii.h>
 
 #include "memory.h"
@@ -81,6 +81,36 @@ void NMI_Handler(void)
 {
 }
 
+__ASM void HardFault_Handler_a(void)
+{	
+	IMPORT HardFault_Handler_C
+    TST LR, #4
+    ITE EQ
+    MRSEQ R0, MSP
+    MRSNE R0, PSP
+    B HardFault_Handler_C
+}
+
+
+void HardFault_Handler_C(unsigned int* hardfault_args)
+{
+	printf("\r\nsp =0x%.8X\r\n",hardfault_args);
+    printf("R0    = 0x%.8X\r\n",hardfault_args[0]);         
+    printf("R1    = 0x%.8X\r\n",hardfault_args[1]);         
+    printf("R2    = 0x%.8X\r\n",hardfault_args[2]);         
+    printf("R3    = 0x%.8X\r\n",hardfault_args[3]);         
+    printf("R12   = 0x%.8X\r\n",hardfault_args[4]);         
+    printf("LR    = 0x%.8X\r\n",hardfault_args[5]);         
+    printf("PC    = 0x%.8X\r\n",hardfault_args[6]);         
+    printf("PSR   = 0x%.8X\r\n",hardfault_args[7]);         
+    printf("BFAR  = 0x%.8X\r\n",*(unsigned int*)0xE000ED38);
+    printf("CFSR  = 0x%.8X\r\n",*(unsigned int*)0xE000ED28);
+    printf("HFSR  = 0x%.8X\r\n",*(unsigned int*)0xE000ED2C);
+    printf("DFSR  = 0x%.8X\r\n",*(unsigned int*)0xE000ED30);
+    printf("AFSR  = 0x%.8X\r\n",*(unsigned int*)0xE000ED3C);
+    printf("SHCSR = 0x%.8X\r\n",SCB->SHCSR);                
+}
+
 /**
   * @brief  This function handles Hard Fault exception.
   * @param  None
@@ -88,6 +118,8 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
+  HardFault_Handler_a();
+
   /* Go to infinite loop when Hard Fault exception occurs */
   while (1)
   {
@@ -259,23 +291,31 @@ void  USB_LP_CAN1_RX0_IRQHandler(void)
 {
 //  u32 i;
 #if  CAN_SUPPORT
+    CanRxMsg msg;
+
+    while(CAN_MessagePending(CAN1,CAN_FIFO0))
     {
-        Message *msg;
-        
+        Message *pMsg;
+
+        CAN_Receive(CAN1, CAN_FIFO0, (CanRxMsg *)&msg);
         
         // do someting here
-        msg = MessageAlloc(PID_CAN,sizeof(CanRxMsg));
-        //  UART_PutChar('T');
-        
-        if (msg)
+        pMsg = MessageAlloc(PID_CAN,sizeof(CanRxMsg));
+        if (pMsg)
         {
-        
-          msg->msgHead.nRcvPid = PID_MAIN_TASK;
-          CAN_Receive(CAN1, CAN_FIFO0, (CanRxMsg *)msg->data);
+          pMsg->msgHead.nRcvPid = PID_MAIN_TASK;
+
+          memcpy(pMsg->data,&msg,sizeof(CanRxMsg));
           
-          MessageSend(msg);
+          if (MessageSend(pMsg))
+          {
+              //printf("OV+1.0\r\n");
+          }
         }
-         
+        else
+        {
+          //printf("OV+1.1\r\n");
+        }         
     }
 #endif
 
@@ -291,21 +331,32 @@ void  USB_LP_CAN1_RX0_IRQHandler(void)
 void  CAN1_RX1_IRQHandler(void)
 {
 #if  CAN_SUPPORT
+    CanRxMsg msg;
 
     // u32 i;
     //CanRxMsg RxMessage;
+    while(CAN_MessagePending(CAN1,CAN_FIFO1))
     {
-        Message *msg;
+        Message *pMsg;
+
+         CAN_Receive(CAN1, CAN_FIFO1, &msg);
     
          // do someting here
-         msg = MessageAlloc(PID_CAN,sizeof(CanRxMsg));
-         //  UART_PutChar('T');
-         
-         if (msg)
+         pMsg = MessageAlloc(PID_CAN,sizeof(CanRxMsg));
+         if (pMsg)
          {
-             msg->msgHead.nRcvPid = PID_MAIN_TASK;
-             CAN_Receive(CAN1, CAN_FIFO1, (CanRxMsg *)msg->data);
-             MessageSend(msg);
+             pMsg->msgHead.nRcvPid = PID_MAIN_TASK;
+
+             memcpy(pMsg->data,&msg,sizeof(CanRxMsg));
+             
+             if (MessageSend(pMsg))
+             {
+                 //printf("OV-1.0\r\n");
+             }
+         }
+         else
+         {
+             //printf("OV-1.1\r\n");
          }
       
     }   

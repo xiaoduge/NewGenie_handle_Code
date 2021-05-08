@@ -7,7 +7,7 @@
 
 #include "App_cfg.h"
 
-#include "sapp.h"
+#include "sapp_ex.h"
 
 #include "common.h"
 #include "cminterface.h"
@@ -27,8 +27,7 @@
 // 
 enum
 {
-    DEVICE_TYPE_SERIAL = 0,
-    DEVICE_TYPE_LOCAL,
+    DEVICE_TYPE_LOCAL = 0,
     DEVICE_BUTT,
 };
 
@@ -36,27 +35,12 @@ enum
 {
     STM32_NV_APP_ADMIN       = 0xA0,
 	STM32_NV_APP_OPER_MODE   = 0xB0,
+    STM32_NV_APP_SN          = 0xB8,
     STM32_NV_APP_TS_CALI     = 0xC0,
 
 };
 
-
 #define CONFIG_LAST_FLASH_PAGE_ADDRESS (HAL_FLASH_BEGIN+HAL_NV_PAGE_END*HAL_FLASH_PAGE_SIZE)
-
-#define CONFIG_DEVICE_ID_PAGE     (CONFIG_LAST_FLASH_PAGE_ADDRESS - HAL_NV_PAGE_CNT*HAL_FLASH_PAGE_SIZE)
-
-#define CONFIG_PARAMETER_PAGE     CONFIG_DEVICE_ID_PAGE //(CONFIG_DEVICE_ID_PAGE - HAL_FLASH_PAGE_SIZE)
-
-#define CONFIG_RUN_TIME_INFO_PAGE (CONFIG_PARAMETER_PAGE - HAL_FLASH_PAGE_SIZE)
-
-#define CONFIG_PARAMETER_SUB_AREA_SIZE (128)
-
-#define CONFIG_PARAMETER_IPTA_OFFSET   (0)
-
-#define CONFIG_PARAMETER_LOCAL_OFFSET  (CONFIG_PARAMETER_IPTA_OFFSET+CONFIG_PARAMETER_SUB_AREA_SIZE)
-
-
-#define CONFIG_PARAMTER_AREA_SIZE (CONFIG_PARAMETER_SUB_AREA_SIZE*5)
 
 #define CMD_HOST2CLIENT_LIGHT 0XF0   //
 #define CMD_HOST2CLIENT_BEEP 0xF1    // 
@@ -147,17 +131,6 @@ typedef struct
 
 #define LOCAL_CONFIG_NUM (1)
 
-#define PARAMETER_LOCAL_BEGIN_POS (CONFIG_PARAMETER_LOCAL_OFFSET)  // 
-#define PARAMETER_LOCAL_LAST_POS  (PARAMETER_LOCAL_BEGIN_POS+sizeof(LOCAL_CONFIG_STRU))
-#define PARAMETER_LOCAL_SIZE      (PARAMETER_LOCAL_LAST_POS-PARAMETER_LOCAL_BEGIN_POS)
-
-#define PARAMETER_LOCAL1_OFF (0)
-
-#define PARAMETER_LOCAL1_SIZE (sizeof(LOCAL_CONFIG1_STRU))
-
-#define PARAMETER_AREA_LENGTH (CONFIG_PARAMTER_AREA_SIZE)
-
-#define PARAMETER_SIZE (PARAMETER_AREA_LENGTH)
 
 #define INVALID_CONFIG_VALUE (0XFFFF)
 
@@ -201,19 +174,13 @@ typedef enum
     BAUD_PARITY_NUM,
 }ENUM_BAUD_PARITY;
 
-
-extern INT8U * const pParameter ;
-extern INT8U * const pIdParameter ;
-extern INT8U * const pRuntimeInfo ;
-
-extern UINT8 Config_buff[HAL_FLASH_PAGE_SIZE];
+extern UINT8 Config_buff[512];
 extern UINT8 aDevType[NV_DTYPE_SIZE];
 
 extern uint16_t gusDeviceId;
 extern ADMIN_STRU gAdmin;
 extern uint16 gusOperMode;
 
-extern TSLIB_LINEAR_CONFIG_STRU gTslibLinearCfg;
 extern LOCAL_CONFIG_STRU gCfg;
 
 UINT8 Config_SaveData(UINT32 ulAddress,UINT8 *pData,UINT16 usLength);
@@ -231,7 +198,7 @@ uint8_t Config_Sapp_Entry(uint8_t *pCmd,uint8_t *pRsp,uint8_t CmdLen,uint8_t *pu
 void Config_Sapp_Cmd(uint8_t cmd,uint8_t *data, uint8_t len);
 
 void Config_SaveParam(LOCAL_CONFIG_STRU *pLocalCfg);
-int Config_SaveSerialNo(uint8_t *pucSerial);
+void Config_SaveSerialNo(uint8_t *pucSerial);
 int Config_GetSerialNo(uint8_t *pucSerial);
 
 #endif

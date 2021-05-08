@@ -29,7 +29,7 @@
 
 #include "common.h"
 
-#include "sapp.h"
+#include "sapp_ex.h"
 
 #include "cminterface.h"
 
@@ -85,18 +85,18 @@ CAN_Snd_Empty_CallBack gCanSndEmptyCB;
 
 
 #define APP_PROTOL_CHECK_HEART_BEAT(usDuration) ((usDuration != 0XFFFF) && (usDuration != 0))
-#define APP_PROTOL_HEART_BEAT_CLIENT_PERIOD 20000
-#define APP_PROTOL_HEART_BEAT_HOST_PERIOD   (APP_PROTOL_HEART_BEAT_CLIENT_PERIOD - 5000)
+#define APP_PROTOL_HEART_BEAT_CLIENT_PERIOD     20000
+#define APP_PROTOL_HEART_BEAT_HOST_PERIOD       (APP_PROTOL_HEART_BEAT_CLIENT_PERIOD - 5000)
 
 typedef struct
 {
-    MsgHead msgHead;
     void *para;
     void *para1;
 }CANCMD_MSG;
 
 
-#define CANCMD_MSG_LENGHT (sizeof(CANCMD_MSG)-sizeof(MsgHead))
+
+#define CANCMD_MSG_LENGHT (sizeof(CANCMD_MSG))
 
 typedef void (*cancmd_msg_cb)(void * para);
 
@@ -200,7 +200,7 @@ void CanMsgSndCb(UINT8 ucIndex, UINT8 aucCmd[],UINT8 ucAddData)
         sys_timeout(500,SYS_TIMER_ONE_SHOT,100,CanResetTimer,NULL,&CanCcb[ucIndex].to4Callback);
     }
 
-    if (ucAddData) MainAlarmWithDuration(10);
+    //if (ucAddData) MainAlarmWithDuration(10);
 }
 
 
@@ -293,7 +293,7 @@ void CanSndBufPush(UINT8 ucIdx)
     if (((ucSndBufFront + 1) % MAX_CAN_OUTPUT_BUFFER )== ucSndBufRear)
     {
         // queue full
-        VOS_LOG(VOS_LOG_ERROR,"Unrecoverable bufffer error \r\n");
+        VOS_LOG(VOS_LOG_ERROR,"Unrecoverable buffer error \r\n");
         
         return ;
     }
@@ -320,7 +320,7 @@ void CanCheckZombieCcb(void)
     pCcb = &CanCcb[ucZombieCcbIndex];
     
 
-    switch(CAN_ZIGBEE_INDEX)
+    switch (ucZombieCcbIndex)
     {
     case CAN_ZIGBEE_INDEX:
         if (pCcb->bit1Registered)
@@ -342,6 +342,8 @@ void CanCheckZombieCcb(void)
                 }
             }
         }
+        break;
+    default:
         break;
     }
 
@@ -388,16 +390,17 @@ void CanTranceiveBufInit(void)
 
 void CanCmd_report(void *para,void *para1)
 {
-   Message *Msg;
-   Msg = MessageAlloc(PID_SELF,CANCMD_MSG_LENGHT);
+   Message *pMsg;
+   pMsg = MessageAlloc(PID_SELF,CANCMD_MSG_LENGHT);
 
-   if (Msg)
+   if (pMsg)
    {
-       CANCMD_MSG *dmsg = (CANCMD_MSG *)Msg;
-       dmsg->msgHead.nMsgType = SELF_MSG_CODE_USER_CANCMD;
-       dmsg->para = para;
+       CANCMD_MSG *dmsg;
+       dmsg = (CANCMD_MSG *)pMsg->data;
+       dmsg->para  = para;
        dmsg->para1 = para1;
-       MessageSend(Msg);
+       pMsg->msgHead.nMsgType = SELF_MSG_CODE_USER_CANCMD;
+       MessageSend(pMsg);
    }
 }
 
@@ -560,7 +563,7 @@ void CanCmdInitizeCAN(void)
 
     CAN_ITConfig(CAN1, CAN_IT_FMP0 /*| CAN_IT_FF0 | CAN_IT_FOV0*/, ENABLE);  // fifo0中断
     CAN_ITConfig(CAN1, CAN_IT_FMP1 /*| CAN_IT_FF1 | CAN_IT_FOV1*/, ENABLE);  // fifo1中断
-    CAN_ITConfig(CAN1, CAN_IT_TME, DISABLE);                              // 发送中断
+    CAN_ITConfig(CAN1, CAN_IT_TME, DISABLE);                              
     //CAN_ITConfig(CAN1, CAN_IT_EWG | CAN_IT_EPV | CAN_IT_BOF | CAN_IT_LEC 
     //            | CAN_IT_ERR | CAN_IT_WKU | CAN_IT_SLK, ENABLE);         // ERR中断
 
@@ -704,6 +707,8 @@ void RcvCanData(UINT8 ucIndex,CanRxMsg *pCanMsg )
           || ((usCanLen < CanRcvBuff[ucIndex].len)
               && (pCanMsg->DLC < 8)))
        {
+           VOS_LOG(VOS_LOG_DEBUG,"segment Invalid Exp%d,Act%d,DLC%d\r\n",CanRcvBuff[ucIndex].len,usCanLen,pCanMsg->DLC);
+       
            // invalid message
            CanRcvBuff[ucIndex].len = 0;
 
@@ -711,7 +716,7 @@ void RcvCanData(UINT8 ucIndex,CanRxMsg *pCanMsg )
            FreeMem(CanRcvBuff[ucIndex].head);
 
            CanRcvBuff[ucIndex].head = NULL;
-           
+
            return;
        }
        if (CanRcvBuff[ucIndex].head)
@@ -750,6 +755,8 @@ void CanCmdSetAdr(uint16_t usAddress)
     CanAddress = usAddress;
 
 	Config_SetItem(NV_CANID_ID,NV_CANID_SIZE,&CanAddress);
+
+    CanCmdInitizeCAN();
 }
 
 
@@ -782,8 +789,6 @@ UINT8 CanCmdIapSetAddr(uint8 *dat)
         usTmpAdr &= 0x7ff;
 
         CanCmdSetAdr(usTmpAdr);
-
-        CanCmdInitizeCAN();
     }
     return TRUE;
 
@@ -858,7 +863,7 @@ UINT8 PidCanProcess(Message *pMsg)
  *
  * @return      TRUE if the downloaded code has been enabled; FALSE otherwise.
  */
-uint8 SHZNAPP_CanResp(uint16 usDstCanAdr,uint16 usSrcCanAdr,UINT8 ucAddData)
+uint8 SHZNAPP_CanResp(uint16 usDstCanAdr,uint16 usSrcCanAdr,UINT8 ucAddData,uint8 *sbTxBuf)
 {
   uint8 fcs = 0, len = sbTxBuf[RPC_POS_LEN] + RPC_FRAME_HDR_SZ;
   uint8 rtrn = FALSE;
@@ -874,7 +879,6 @@ uint8 SHZNAPP_CanResp(uint16 usDstCanAdr,uint16 usSrcCanAdr,UINT8 ucAddData)
     fcs ^= sbTxBuf[idx];
   }
   sbTxBuf[len] = fcs;
-
 
   sbTxBuf[-1] = RPC_UART_SOF;
 
@@ -1042,20 +1046,22 @@ uint8 CanCcbAfDataClientOnLineNotiCnfMsg(UINT8 ucCcbIndex,uint8_t *msg)
 
 void CanCcbHeartBeat_msg_handler(void *para)
 {
+    char buffer[sizeof(APP_PACKET_HEART_BEAT_RSP_STRU)];
+
     UINT8 ucCcbIndex = (UINT8)(UINT32)para;
     UINT8 ucTransId  = (((UINT32)para) >> 8)& 0XFF;
 
-    APP_PACKET_HEART_BEAT_RSP_STRU tsr;
+    APP_PACKET_HEART_BEAT_RSP_STRU *tsr = (APP_PACKET_HEART_BEAT_RSP_STRU *)&buffer[0];
 
-    tsr.hdr.ucLen       = APP_POROTOL_PACKET_HEART_BEAT_RSP_PAYLOAD_LENGTH;
-    tsr.hdr.ucMsgType   = APP_PACKET_COMM_HEART_BEAT|APP_PROTOL_PACKET_RSP_MASK;
-    tsr.hdr.ucTransId   = ucTransId;
-    tsr.hdr.ucDevType   = APP_DEV_TYPE_HAND_SET;
+    tsr->hdr.ucLen       = APP_POROTOL_PACKET_HEART_BEAT_RSP_PAYLOAD_LENGTH;
+    tsr->hdr.ucMsgType   = APP_PACKET_COMM_HEART_BEAT|APP_PROTOL_PACKET_RSP_MASK;
+    tsr->hdr.ucTransId   = ucTransId;
+    tsr->hdr.ucDevType   = APP_DEV_TYPE_HAND_SET;
 
     /*Collect src Address here since it may be changed by other proc */
     CanCcb[ucCcbIndex].usSrcAddr = APP_DEV_TYPE_MAIN_CTRL;
  
-    (void)CanSndSappCmd(ucCcbIndex,SAPP_CMD_DATA,0,(uint8_t *)&tsr,APP_POROTOL_PACKET_HEART_BEAT_RSP_TOTAL_LENGTH);
+    (void)CanSndSappCmd(ucCcbIndex,SAPP_CMD_DATA,0,(uint8_t *)buffer ,APP_POROTOL_PACKET_HEART_BEAT_RSP_TOTAL_LENGTH);
     
 }
 
@@ -1140,7 +1146,7 @@ uint8 CanCcbAfDataClientReportMsg(UINT8 ucCcbIndex,uint8_t *msg)
 }
 
 
-uint8 CanCcbAfDataMsg(UINT8 ucCcbIndex)
+uint8 CanCcbAfDataMsg(UINT8 ucCcbIndex,UINT8 *sbRxBuf)
 {
     APP_PACKET_COMM_STRU *pmg = (APP_PACKET_COMM_STRU *)&sbRxBuf[RPC_POS_DAT0]; 
     switch((pmg->ucMsgType & 0x7f))
@@ -1198,12 +1204,12 @@ uint8 CanCcbAfDataMsg(UINT8 ucCcbIndex)
  * @return      None.
  */
  
-uint8 CanCcbAfProc(UINT8 ucCcbIndex)
+uint8 CanCcbAfProc(UINT8 ucCcbIndex,UINT8 *sbRxBuf)
 {
     switch(sbRxBuf[RPC_POS_CMD1])
     {
     case SAPP_CMD_DATA:
-        CanCcbAfDataMsg(ucCcbIndex);
+        CanCcbAfDataMsg(ucCcbIndex,sbRxBuf);
         break;
     }
     return FALSE;
@@ -1226,7 +1232,7 @@ uint8 CanCcbAfProc(UINT8 ucCcbIndex)
  * @return      None.
  */
  
-uint8 CanCcbAfPeekDataMsg(UINT8 ucCcbIndex)
+uint8 CanCcbAfPeekDataMsg(UINT8 ucCcbIndex,uint8_t *sbRxBuf)
 {
     APP_PACKET_COMM_STRU *pmg = (APP_PACKET_COMM_STRU *)&sbRxBuf[RPC_POS_DAT0]; 
     switch((pmg->ucMsgType & 0x7f))
@@ -1261,12 +1267,12 @@ uint8 CanCcbAfPeekDataMsg(UINT8 ucCcbIndex)
  * @return      None.
  */
  
-uint8 CanCcbAfPeekProc(UINT8 ucCcbIndex)
+uint8 CanCcbAfPeekProc(UINT8 ucCcbIndex,uint8_t *sbRxBuf)
 {
     switch(sbRxBuf[RPC_POS_CMD1])
     {
     case SAPP_CMD_DATA:
-        CanCcbAfPeekDataMsg(ucCcbIndex);
+        CanCcbAfPeekDataMsg(ucCcbIndex,sbRxBuf);
         break;
     }
     return FALSE;
@@ -1277,6 +1283,12 @@ void CanRcvFrame(UINT8 ucCcbIndex,UINT8 ucRcvBufIndex)
 {
     UINT8 ucRet = TRUE;
 
+    UINT8 *aucTxBuffer;
+
+    UINT8 buffer[256];
+
+    aucTxBuffer = buffer + 1;
+
     CanCcb[ucCcbIndex].usSrcAddr   = CanRcvBuff[ucRcvBufIndex].usSrcAddr;
     CanCcb[ucCcbIndex].ucDedicated = (ucRcvBufIndex == CAN_RCV_BUFFER_LOCAL_INDEX);
     CanCcb[ucCcbIndex].ucDataSrc   = 0;
@@ -1285,16 +1297,16 @@ void CanRcvFrame(UINT8 ucCcbIndex,UINT8 ucRcvBufIndex)
     {
         //MainAlarmWithDuration(1);
 
-        CanHashAddr = CanAddress;
+        uint8_t *sbRxBuf = CanRcvBuff[ucRcvBufIndex].head + 1;
 
-        sappItfType = Interface_CAN;
+        CanHashAddr = CanAddress;
 
         switch(sbRxBuf[RPC_POS_CMD0])
         {
         case RPC_SYS_APP:
             if ((ucRcvBufIndex <= CAN_RCV_BUFFER_LOCAL_INDEX))
             {
-                ucRet = SHZNAPP_SerialAppProc();
+                ucRet = SHZNAPP_SerialAppProc(sbRxBuf,aucTxBuffer);
             }
             else
             {
@@ -1306,7 +1318,7 @@ void CanRcvFrame(UINT8 ucCcbIndex,UINT8 ucRcvBufIndex)
             {
                 uint8_t ucCmd1 = sbRxBuf[RPC_POS_CMD1];
 
-                ucRet = SHZNAPP_SerialBootProc();
+                ucRet = SHZNAPP_SerialBootProc(sbRxBuf,aucTxBuffer);
                 if (SBL_QUERY_ID_CMD == ucCmd1)
                 {
                     if (INVALID_CAN_ADDRESS(CanHashAddr))
@@ -1324,11 +1336,11 @@ void CanRcvFrame(UINT8 ucCcbIndex,UINT8 ucRcvBufIndex)
         case RPC_SYS_AF:
             if ((ucRcvBufIndex <= CAN_RCV_BUFFER_LOCAL_INDEX))
             {
-                ucRet = CanCcbAfProc(ucCcbIndex);
+                ucRet = CanCcbAfProc(ucCcbIndex,sbRxBuf);
             }
             else
             {
-                ucRet = CanCcbAfPeekProc(ucCcbIndex);
+                ucRet = CanCcbAfPeekProc(ucCcbIndex,sbRxBuf);
             }
             break;
         case RPC_SYS_RCN: /* transparently directed to Zigbee */
@@ -1339,19 +1351,28 @@ void CanRcvFrame(UINT8 ucCcbIndex,UINT8 ucRcvBufIndex)
             }
             break;
         default:
-            ucRet = SHZNAPP_SerialUnknowProc();
+            ucRet = SHZNAPP_SerialUnknowProc(aucTxBuffer);
             break;
         }
 
         if (ucRet)
         {
-            (void)SHZNAPP_CanResp(CanRcvBuff[ucRcvBufIndex].usSrcAddr,CanHashAddr,0);  // Send the SB response setup in the sbBuf passed to sblProc().
+            (void)SHZNAPP_CanResp(CanRcvBuff[ucRcvBufIndex].usSrcAddr,CanHashAddr,0,aucTxBuffer);  // Send the SB response setup in the sbBuf passed to sblProc().
         }
+    }
+    else
+    {
+        VOS_LOG(VOS_LOG_DEBUG,"Frame Invalid\r\n");
     }
 }
 
 int CanSndSappCmd(uint8_t ucCcbIdx,uint8_t ucCmd,uint8_t ucAddData,uint8_t *data, uint8_t len)
 {
+
+    uint8_t buffer[256];
+
+    uint8_t *sbTxBuf = buffer + 1;
+
     switch(ucCcbIdx)
     {
     case CAN_LOCAL_CAN_INDEX:
@@ -1362,7 +1383,7 @@ int CanSndSappCmd(uint8_t ucCcbIdx,uint8_t ucCmd,uint8_t ucAddData,uint8_t *data
             
             memcpy(&sbTxBuf[RPC_POS_DAT0],data,len);
             
-            return SHZNAPP_CanResp(CanCcb[ucCcbIdx].usSrcAddr,CanAddress,ucAddData);
+            return SHZNAPP_CanResp(CanCcb[ucCcbIdx].usSrcAddr,CanAddress,ucAddData,sbTxBuf);
          }
     case CAN_ZIGBEE_INDEX:
          {
@@ -1371,7 +1392,7 @@ int CanSndSappCmd(uint8_t ucCcbIdx,uint8_t ucCmd,uint8_t ucAddData,uint8_t *data
         
             sbTxBuf[RPC_POS_LEN]  = len + 3; // len for data area (NOT INCLUDE CMD0&CMD1&LEN itself)
             sbTxBuf[RPC_POS_CMD0] = RPC_SYS_APP;
-            sbTxBuf[RPC_POS_CMD1] = ucCmd;//SAPP_CMD_DATA or SAPP_CMD_AIR_DATA;
+            sbTxBuf[RPC_POS_CMD1] = ucCmd;   //SAPP_CMD_DATA or SAPP_CMD_AIR_DATA;
 
             sbTxBuf[iOffset++]    = afAddr16Bit;
             sbTxBuf[iOffset++]    = 0; /* to coo */
@@ -1388,7 +1409,7 @@ int CanSndSappCmd(uint8_t ucCcbIdx,uint8_t ucCmd,uint8_t ucAddData,uint8_t *data
             memcpy(&sbTxBuf[iOffset],data,len);
             
             /* to zigbee */
-            zb_SerialResp();
+            zb_SerialResp(sbTxBuf);
 
             return TRUE;
          }
@@ -1399,6 +1420,11 @@ int CanSndSappCmd(uint8_t ucCcbIdx,uint8_t ucCmd,uint8_t ucAddData,uint8_t *data
 
 int CanSndSappCmd2(uint8_t ucCcbIdx,uint16 usDstCanAdr,uint16 usSrcCanAdr,uint8_t ucCmd,uint8_t *data, uint8_t len)
 {
+
+    uint8_t buffer[256];
+
+    uint8_t *sbTxBuf = buffer + 1;
+
     switch(ucCcbIdx)
     {
     case CAN_LOCAL_CAN_INDEX:
@@ -1410,7 +1436,7 @@ int CanSndSappCmd2(uint8_t ucCcbIdx,uint16 usDstCanAdr,uint16 usSrcCanAdr,uint8_
             
             memcpy(&sbTxBuf[RPC_POS_DAT0],data,len);
         
-            return SHZNAPP_CanResp(usDstCanAdr,usSrcCanAdr,0);
+            return SHZNAPP_CanResp(usDstCanAdr,usSrcCanAdr,0,sbTxBuf);
         }
     case CAN_ZIGBEE_INDEX:
         {
@@ -1436,7 +1462,7 @@ int CanSndSappCmd2(uint8_t ucCcbIdx,uint16 usDstCanAdr,uint16 usSrcCanAdr,uint8_
            memcpy(&sbTxBuf[iOffset],data,len);
            
            /* to zigbee */
-           zb_SerialResp();
+           zb_SerialResp(sbTxBuf);
         }
          break;        
     }
@@ -1446,13 +1472,17 @@ int CanSndSappCmd2(uint8_t ucCcbIdx,uint16 usDstCanAdr,uint16 usSrcCanAdr,uint8_
 
 int CanSndSappRawCmd2(uint16 usDstCanAdr,uint16 usSrcCanAdr,uint8_t ucSys,uint8_t ucCmd,uint8_t *data, uint8_t len)
 {
+    uint8_t buffer[256];
+
+    uint8_t *sbTxBuf = buffer + 1;
+    
     sbTxBuf[RPC_POS_LEN]  = len; // len for data area (NOT INCLUDE CMD0&CMD1&LEN itself)
     sbTxBuf[RPC_POS_CMD0] = ucSys;
     sbTxBuf[RPC_POS_CMD1] = ucCmd;//SAPP_CMD_DATA;
     
     memcpy(&sbTxBuf[RPC_POS_DAT0],data,len);
 
-    return SHZNAPP_CanResp(usDstCanAdr,usSrcCanAdr,0);
+    return SHZNAPP_CanResp(usDstCanAdr,usSrcCanAdr,0,sbTxBuf);
 }
 
 
@@ -1463,7 +1493,7 @@ void CanCmdRegisterSndEmptyCallBack(CAN_Snd_Empty_CallBack cb)
 
 void CanCmd_msg_Handler(Message *Msg)
 {
-    CANCMD_MSG *dmsg = (CANCMD_MSG *)Msg;
+    CANCMD_MSG *dmsg = (CANCMD_MSG *)Msg->data;
 
     if (dmsg->para)
     {
@@ -1474,7 +1504,7 @@ void CanCmd_msg_Handler(Message *Msg)
 void CanCcbRegister_msg_handler(void *para)
 {
     // task
-	char buf[32];
+	char buf[64];
 	int iIdx = 0;
     UINT8 ucIndex = (UINT8)(UINT32)para;
     APP_PACKET_ONLINE_NOTI_IND_STRU *ind = (APP_PACKET_ONLINE_NOTI_IND_STRU *)buf;
@@ -1525,6 +1555,11 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
         if ((APP_PACKET_HO_QTW  != pOpsMsg->ucOpsType) 
             || (CanCcb[ucIndex].ucMachineState != MACHINE_STATE_MAIN_WAIT_TW_RSP))
         {
+            // change to diagnosis message
+            pOpsMsg->hdr.ucMsgType += 0x20;
+
+            CanSndSappCmd(ucIndex ,SAPP_CMD_DATA,1,pucMsg,ucLength);
+            
             VOS_LOG(VOS_LOG_ERROR,"Error State  ops %d, state %d\r\n",pOpsMsg->ucOpsType,CanCcb[ucIndex].ucMachineState);
         
             return 0XFF;
@@ -1568,7 +1603,7 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
 
 uint8_t CanCcbSndZigbeeIndMsg(void)
 {
-    uint8_t buf[16];
+    uint8_t buf[32];
     
     APP_PACKET_ZIGBEE_IND_STRU *pLoad = (APP_PACKET_ZIGBEE_IND_STRU *)buf;
 
@@ -1588,7 +1623,7 @@ uint8_t CanCcbSndZigbeeIndMsg(void)
     CanCcb[CAN_ZIGBEE_INDEX].usSrcAddr = APP_DEV_TYPE_MAIN_CTRL; 
 
     // push to queue
-    return CanSndSappCmd(CAN_ZIGBEE_INDEX ,SAPP_CMD_DATA,0,buf,pLoad->hdr.ucLen + APP_PROTOL_HEADER_LEN);
+    return CanSndSappCmd(CAN_ZIGBEE_INDEX ,SAPP_CMD_DATA,0,buf ,pLoad->hdr.ucLen + APP_PROTOL_HEADER_LEN);
 }
 
 void CanCcb_Register(void *para)

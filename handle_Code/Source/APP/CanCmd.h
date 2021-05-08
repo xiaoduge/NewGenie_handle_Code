@@ -120,11 +120,9 @@ typedef enum
    CAN_RCV_BUFFER_BUTT
 }CAN_RCV_BUFFER_ENUM;
 
-
-#define CAN_MAX_RCV_BUFFER MAX_CAN_CCB_NUMBER
-
 #define MAX_CAN_OUTPUT_BUFFER 8
 
+#define CAN_MAX_RCV_BUFFER MAX_CAN_OUTPUT_BUFFER
 
 extern UINT16 CanAddress ;
 extern UINT16 CanHashAddr;
@@ -169,7 +167,7 @@ uint8_t CanCcbSndHandleOperationMsg(UINT8 ucIndex,uint8_t *pucMsg,uint8_t ucLeng
 void CanCmdSetAdr(uint16_t usAddress);
 UINT16 CanCmdHashAdr(void);
 void CanCcbResetRegisterFlag(UINT8 ucCcbIndex);
-uint8_t CanCcbAfProc(UINT8 ucCcbIndex);
+uint8_t CanCcbAfProc(UINT8 ucCcbIndex,UINT8 *sbRxBuf);
 void CanCcbSystemStartReportRegister(uint8_t ucTrxIndex);
 uint8_t CanCcbSndZigbeeIndMsg(void);
 uint8_t Trx2CanCcbIndex(uint8_t ucIndex);

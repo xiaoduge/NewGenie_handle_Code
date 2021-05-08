@@ -20,7 +20,7 @@
 
 #include "common.h"
 
-#include "sapp.h"
+#include "sapp_ex.h"
 
 #include "serial_driver.h"
 
@@ -28,7 +28,7 @@
 #include "UsbCdc.h"
 #endif
 
-static int UcLogLevel = VOS_LOG_ERROR;
+static SAPP_PARSE_STRU sAppParse;
 
 
 void UartCmdCallback(uint8 port, uint8 event)
@@ -36,7 +36,7 @@ void UartCmdCallback(uint8 port, uint8 event)
   
   if (event & (HAL_UART_RX_FULL|HAL_UART_RX_ABOUT_FULL|HAL_UART_RX_TIMEOUT))
   {
-      SHZNAPP_SerialParse(0);
+      SHZNAPP_SerialParse(0,&sAppParse);
   }
 
   if (event & HAL_UART_TX_EMPTY)
@@ -87,8 +87,6 @@ void UartCmdInit(void)
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 
-    // others are initialized in Printf
-    
     USART_ITConfig(EVAL_COM1, USART_IT_RXNE, ENABLE);
 
 #endif
@@ -98,7 +96,11 @@ void UartCmdInit(void)
 
     UartCmdStru.cb = UartCmdCallback;
 
-	SHZNAPP_SerialInit();
+    memset(&sAppParse,0,sizeof(SAPP_PARSE_STRU));
+
+    sAppParse.rpcSte = rpcSteSOF;
+
+    SHZNAPP_ProtolInit();
 
 }
 
@@ -139,16 +141,13 @@ void UartCmdSerialWrite(uint8 ucCmd,uint8 *pBuffer, uint16 length)
 {
     if (length <= SAPP_MAX_SIZE)
     {
-        sbTxBuf[RPC_POS_LEN]  = length;
-        sbTxBuf[RPC_POS_CMD0] = RPC_SYS_APP;
-        sbTxBuf[RPC_POS_CMD1] = ucCmd;
+        pBuffer[RPC_POS_LEN]  = length;
+        pBuffer[RPC_POS_CMD0] = RPC_SYS_APP;
+        pBuffer[RPC_POS_CMD1] = ucCmd;
     
-        memcpy(&sbTxBuf[RPC_POS_DAT0],pBuffer, length);
-    
-        (void)SHZNAPP_SerialResp(sappItfPort);
+        (void)SHZNAPP_SerialResp(0,RPC_UART_SOF,pBuffer);
     }
 }
-
 void UartCmdRs485Report(UINT8 ucPort ,UINT8 *pData,UINT8 ucLength)
 {
     UartCmdSerialWrite(SAPP_CMD_USER + ucPort,pData,ucLength);
@@ -163,11 +162,6 @@ uint16_t HalUARTWrite(uint8_t port, uint8_t *pBuffer, uint16_t length)
     case 0:
         UartCmdSendMsg(pBuffer,length);
         break;
-#if USB_SUPPORT > 0
-    case 1:
-        USBCDC_senddata(pBuffer,length);
-        break;
-#endif		
     default:
         return 0;
     }
@@ -187,70 +181,10 @@ uint16_t HalUARTRead(uint8_t port, uint8_t *pBuffer, uint16_t length)
           return 1;
         }
         return 0;
-#if USB_SUPPORT > 0		
-    case 1:
-        return USBCDC_recvdata(pBuffer,length);
-#endif		
     default:
         return 0;
     }
 
 
-}
-
-/*********************************************************************
- * @fn      sbpSerialAppPrintString
- *
- * @brief   output string to serial port 
- *
- * @param   str  - string to be printed
- *
- * @return  none
- */
-void UartCmdPrintString(char str[])
-{
-    UINT8 length = strlen((char*)str);
-    
-    UartCmdSerialWrite(SAPP_CMD_DBG_INFO,(uint8 *)str,length);
-
-}
-
-/*********************************************************************
- * @fn      sbpSerialPrintf
- *
- * @brief   format output to serial port
- *
- * @param   fmt  - format string
- * @param   ... - args
- * 
- * @return  none
- */
-void UartCmdPrintf(int level,const char* fmt,...)
-{
-    char buf[64];
-	va_list   args;
-
-    if (level> UcLogLevel)
-    {
-        return ;
-    }
-	
-	va_start(args, fmt);
-  
-	vsprintf(buf,fmt,args);
-  
-	va_end(args);
-
-    UartCmdPrintString(buf);
-}
-
-
-void UartCmdSetLogLevel(int iLevel)
-{
-    if (iLevel >=VOS_LOG_BUTT ||  iLevel < 0)
-    {
-        return ;
-    }
-    UcLogLevel = iLevel;
 }
 

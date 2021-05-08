@@ -7,7 +7,7 @@
 
 #include "common.h"
 
-#include "sapp.h"
+#include "sapp_ex.h"
 #include "at.h"
 
 #include "config.h"
